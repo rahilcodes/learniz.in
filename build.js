@@ -216,7 +216,60 @@ Sitemap: https://learniz.in/sitemap.xml
   // 7. Write .nojekyll for GitHub Pages
   fs.writeFileSync(path.join(DIST, '.nojekyll'), '', 'utf-8');
 
-  // 8. Mirror to docs/ directory for multi-source GitHub Pages support
+  // 8. Generate .htaccess for Apache / LiteSpeed (Hostinger)
+  console.log('Generating .htaccess…');
+  const htaccessContent = `# Learniz Apache/LiteSpeed Configuration for Hostinger
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Ensure directory requests without slash get redirected properly
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+
+# Clean URLs: if path.html exists, rewrite
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Custom 404
+ErrorDocument 404 /404.html
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+`;
+  fs.writeFileSync(path.join(DIST, '.htaccess'), htaccessContent, 'utf-8');
+
+  // 9. Mirror to docs/ directory for multi-source GitHub Pages support
   console.log('Mirroring dist/ to docs/ directory…');
   copyDir(DIST, DOCS);
   fs.writeFileSync(path.join(DOCS, '.nojekyll'), '', 'utf-8');
