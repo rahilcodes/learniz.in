@@ -1,0 +1,16 @@
+{
+  "name": "learniz-website",
+  "version": "2.0.0",
+  "description": "Learniz - Experiential Learning Platform for Indian Schools",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "build:gh-pages": "node build.js",
+    "build:custom-domain": "node -e \"process.env.BASE_PATH=''; import('./build.js')\"",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "py test_routes.py"
+  },
+  "author": "TATTVATECH EDU SOLUTIONS LLP",
+  "license": "UNLICENSED"
+}

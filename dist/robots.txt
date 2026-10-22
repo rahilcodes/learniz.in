@@ -1,0 +1,6 @@
+# robots.txt for learniz.in
+User-agent: *
+Allow: /
+Disallow: /lp/
+
+Sitemap: https://learniz.in/sitemap.xml

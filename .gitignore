@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Design review zip & dumps
+\#\ Academiz\ Homepage\ Design\ Review/
+\#\ Academiz\ Homepage\ Design\ Review.zip
+\#*
+extracted_assets/
+live_bundle.js
+live_site_raw.html
+pdf_brief_text.txt
+hero_section.html
+home_script.js
+home_sections_summary.txt
+sec_*.html
+inspect_*.py
+dump_all_sections.py
+analyze_home.py
+summarize_home_sections.py
+learniz logo.jpg
