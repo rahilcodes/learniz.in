@@ -229,11 +229,22 @@ ${header}
           <!-- Sidebar -->
           <div class="lz-browser-sidebar">
             <div class="lz-browser-sidebar-logo">
-              <div class="lz-browser-logo-mark">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF; transform: translate(2px, -2px);"></span>
-                <span style="position: absolute; left: 5px; bottom: 5px; width: 6px; height: 6px; border-radius: 50%; background: #F59E0B;"></span>
-              </div>
-              <span class="lz-browser-logo-text">Learniz</span>
+              <img
+                src="/assets/images/learniz-logo-white.png"
+                alt="Learniz"
+                class="lz-browser-sidebar-logo-img"
+                width="120"
+                height="39"
+                style="height: 28px; width: auto; max-width: 120px; object-fit: contain; display: block;"
+              >
+              <img
+                src="/assets/images/learniz-mark.png"
+                alt="Learniz"
+                class="lz-browser-sidebar-mark-img"
+                width="26"
+                height="26"
+                style="height: 26px; width: 26px; object-fit: contain; display: none;"
+              >
             </div>
 
             <!-- Navigation Items -->

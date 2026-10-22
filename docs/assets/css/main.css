@@ -1281,30 +1281,25 @@ input[type="range"]:active::-webkit-slider-thumb {
 .lz-browser-sidebar-logo {
   display: flex;
   align-items: center;
-  gap: 9px;
   padding: 4px 6px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 6px;
+  min-height: 44px;
 }
 
-.lz-browser-logo-mark {
-  width: 26px;
+.lz-browser-sidebar-logo-img {
+  height: 28px;
+  width: auto;
+  max-width: 125px;
+  object-fit: contain;
+  display: block;
+}
+
+.lz-browser-sidebar-mark-img {
   height: 26px;
-  border-radius: 7px;
-  background: #2563EB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.lz-browser-logo-text {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 14.5px;
-  color: #FFFFFF;
-  letter-spacing: -0.02em;
+  width: 26px;
+  object-fit: contain;
+  display: none;
 }
 
 .lz-sidebar-nav-item {
@@ -1421,8 +1416,11 @@ input[type="range"]:active::-webkit-slider-thumb {
     padding: 0 0 10px;
     justify-content: center;
   }
-  .lz-browser-logo-text {
-    display: none;
+  .lz-browser-sidebar-logo-img {
+    display: none !important;
+  }
+  .lz-browser-sidebar-mark-img {
+    display: block !important;
   }
   .lz-sidebar-nav-item span {
     display: none;
