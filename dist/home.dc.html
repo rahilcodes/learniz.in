@@ -356,203 +356,373 @@
 
 
 <main id="main-content">
-  <!-- SECTION 1: HERO -->
-  <section data-screen-label="Hero" aria-labelledby="h1" style="position:relative;overflow:clip;background:radial-gradient(70% 60% at 50% 0%,#EEF4FF 0%,rgba(255,255,255,0) 70%)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,88px) 20px 0;text-align:center">
-      <p class="lz-hero-pill">
-        <span style="padding:2px 8px;border-radius:999px;background:hsl(217 91% 60%);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.04em">LEARNIZ</span>
-        Every class an experiment, not a lecture.
-      </p>
-      <h1 id="h1" class="lz-hero-title" style="margin:22px auto 0;max-width:900px;font-family:Figtree,Inter,sans-serif;font-weight:800;font-size:clamp(30px,5.4vw,70px);line-height:1.05;letter-spacing:-.035em;color:#0B1324">
-        Concept Clarity in every class. <span style="color:hsl(217 91% 52%)">Outcomes you can see.</span>
-      </h1>
-      <p style="margin:22px auto 0;max-width:640px;font-size:clamp(16px,1.6vw,19px);line-height:1.55;color:#3F4A5C">
-        Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood.
-      </p>
-      <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-        <button type="button" data-open-demo class="lz-btn-primary">Book a free demo</button>
-        <a href="/see-it-live" class="lz-btn-outline">
-          <img src="/assets/icons/play.svg" alt="" width="16" height="16">
-          See It Live
-        </a>
-      </div>
-      <p style="margin:18px 0 0;font-size:13.5px;color:#6B7485">
-        Built in Hyderabad for Indian schools · Content aligned with NEP 2020 and NCF-SE 2023
-      </p>
+  <!-- SECTION 1: HERO (Redesigned Premium Showcase) -->
+  <section data-screen-label="Hero" aria-labelledby="h1" class="lz-hero-section">
+    <!-- Ambient Gradients -->
+    <div class="lz-hero-ambient-blob lz-hero-blob-left" aria-hidden="true"></div>
+    <div class="lz-hero-ambient-blob lz-hero-blob-right" aria-hidden="true"></div>
+
+    <!-- Decorative Dot Grids -->
+    <div class="lz-hero-dot-grid lz-hero-dots-top" aria-hidden="true">
+      <svg width="90" height="54" viewBox="0 0 90 54" fill="none">
+        <pattern id="dotPatternTop" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="2.2" fill="#93C5FD" opacity="0.65"/>
+        </pattern>
+        <rect width="90" height="54" fill="url(#dotPatternTop)"/>
+      </svg>
     </div>
 
-    <!-- Product Composition Mockup -->
-    <div style="position:relative;max-width:1280px;margin:clamp(40px,6vw,64px) auto 0;padding:0 20px clamp(48px,7vw,88px)">
-      <!-- Desktop Ambient Cards -->
-      <div class="lz-desktop-only" aria-hidden="true" style="position:absolute;left:20px;bottom:150px;width:224px;background:#fff;border:1px solid #E5E8EF;border-radius:16px;box-shadow:0 24px 50px -20px rgba(11,19,36,.35);padding:16px;z-index:2;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;gap:10px">
-          <span style="width:34px;height:34px;border-radius:50%;background:hsl(25 95% 63%);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px">AR</span>
-          <div>
-            <div style="font-size:13px;font-weight:600">Parent update</div>
-            <div style="font-size:12px;color:#6B7485">Aarav R. · Class 9-B</div>
+    <div class="lz-hero-dot-grid lz-hero-dots-left" aria-hidden="true">
+      <svg width="108" height="108" viewBox="0 0 108 108" fill="none">
+        <pattern id="dotPatternLeft" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="2.2" fill="#93C5FD" opacity="0.65"/>
+        </pattern>
+        <rect width="108" height="108" fill="url(#dotPatternLeft)"/>
+      </svg>
+    </div>
+
+    <div class="lz-hero-dot-grid lz-hero-dots-right" aria-hidden="true">
+      <svg width="108" height="108" viewBox="0 0 108 108" fill="none">
+        <pattern id="dotPatternRight" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="2.2" fill="#93C5FD" opacity="0.65"/>
+        </pattern>
+        <rect width="108" height="108" fill="url(#dotPatternRight)"/>
+      </svg>
+    </div>
+
+    <!-- Hero Header & Value Proposition -->
+    <div class="lz-hero-content">
+      <h1 id="h1" class="lz-hero-heading">
+        Concept Clarity in every class. <span class="lz-hero-heading-blue">Outcomes you can see.</span>
+      </h1>
+      <p class="lz-hero-description">
+        Learniz turns lessons into interactive experiments and shows principals, in numbers, what every class understood.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="lz-hero-cta-group">
+        <button type="button" data-open-demo class="lz-hero-btn-primary">
+          <span>Book a free demo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <a href="/see-it-live" class="lz-hero-btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>See It Live</span>
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="lz-hero-trust-row">
+        <div class="lz-hero-trust-item">
+          <svg class="lz-hero-trust-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+          <span>Built for Indian schools</span>
+        </div>
+        <span class="lz-hero-trust-sep" aria-hidden="true"></span>
+        <div class="lz-hero-trust-item">
+          <svg class="lz-hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          <span>Aligned with NEP 2020</span>
+        </div>
+        <span class="lz-hero-trust-sep" aria-hidden="true"></span>
+        <div class="lz-hero-trust-item">
+          <svg class="lz-hero-trust-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.5 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00-.063-.098.75.75 0 00.063.098c5.499-1.415 9.563-6.406 9.563-12.348 0-1.352-.272-2.64-.76-3.81a.75.75 0 00-.722-.516l-.105.002a11.209 11.209 0 01-7.523-3.254zm3.014 6.86a.75.75 0 00-1.06-1.06L10.5 11.94 8.53 9.97a.75.75 0 00-1.06 1.06l2.5 2.5a.75.75 0 001.06 0l5.5-5.5z" clip-rule="evenodd"/>
+          </svg>
+          <span>NCF 2023 compliant</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN PRODUCT DASHBOARD MOCKUP WITH FLOATING CARDS -->
+    <div class="lz-hero-showcase-wrapper">
+      <!-- Floating Card 1: Topic Mastery (Upper-Right) -->
+      <div class="lz-floating-card-topic" aria-hidden="true">
+        <!-- Radiating Sparkle Accent Above -->
+        <div style="position: absolute; right: -8px; top: -14px;" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round">
+            <line x1="12" y1="2" x2="12" y2="7"/>
+            <line x1="19" y1="5" x2="15" y2="9"/>
+            <line x1="22" y1="12" x2="17" y2="12"/>
+          </svg>
+        </div>
+
+        <!-- Card Content -->
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px;">
+          <svg style="width: 16px; height: 16px; color: #2563EB;" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="12" width="4" height="9" rx="1.5"/>
+            <rect x="10" y="7" width="4" height="14" rx="1.5"/>
+            <rect x="17" y="3" width="4" height="18" rx="1.5"/>
+          </svg>
+          <span style="font-size: 12.5px; font-weight: 700; color: #0F172A;">Topic Mastery · 9-B</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 11.5px;">
+            <span style="width: 54px; color: #475569; font-weight: 500;">Forces</span>
+            <div style="flex: 1; height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+              <div style="width: 82%; height: 100%; background: #3B82F6; border-radius: 4px;"></div>
+            </div>
+            <span style="width: 28px; text-align: right; font-weight: 700; color: #0F172A;">82%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 11.5px;">
+            <span style="width: 54px; color: #475569; font-weight: 500;">Motion</span>
+            <div style="flex: 1; height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+              <div style="width: 67%; height: 100%; background: #3B82F6; border-radius: 4px;"></div>
+            </div>
+            <span style="width: 28px; text-align: right; font-weight: 700; color: #0F172A;">67%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 11.5px;">
+            <span style="width: 54px; color: #475569; font-weight: 500;">Pressure</span>
+            <div style="flex: 1; height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+              <div style="width: 48%; height: 100%; background: #F59E0B; border-radius: 4px;"></div>
+            </div>
+            <span style="width: 28px; text-align: right; font-weight: 700; color: #0F172A;">48%</span>
           </div>
         </div>
-        <div style="margin-top:12px;padding:10px 12px;border-radius:10px;background:#F6F8FB;font-size:12.5px;line-height:1.5;color:#1F2A3D">
-          Unit test 2 · Physics published. Topic report and teacher note available.
-        </div>
-        <div style="margin-top:10px;display:flex;gap:6px">
-          <span style="padding:3px 8px;border-radius:6px;background:#E8F7EE;color:#15803D;font-size:11px;font-weight:600">Viewed</span>
-          <span style="padding:3px 8px;border-radius:6px;background:#EEF4FF;color:hsl(217 91% 40%);font-size:11px;font-weight:600">Reply</span>
+
+        <!-- Curved Blue Arrow Below -->
+        <div style="position: absolute; right: -28px; bottom: -82px;" aria-hidden="true">
+          <svg width="40" height="85" viewBox="0 0 40 85" fill="none">
+            <path d="M 32 4 C 36 32, 24 58, 6 68" stroke="#2563EB" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M 16 58 L 4 69 L 14 78" stroke="#2563EB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
 
-      <div class="lz-desktop-only" aria-hidden="true" style="position:absolute;right:20px;top:64px;width:224px;background:#fff;border:1px solid #E5E8EF;border-radius:16px;box-shadow:0 24px 50px -20px rgba(11,19,36,.35);padding:16px;z-index:2;display:flex;flex-direction:column">
-        <div style="font-size:12px;font-weight:600;letter-spacing:.08em;color:#6B7485">TOPIC MASTERY · 9-B</div>
-        <div style="margin-top:10px;display:grid;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px">
-            <span style="width:70px;color:#3F4A5C">Forces</span>
-            <span style="flex:1;height:8px;border-radius:4px;background:#EEF0F4;overflow:hidden">
-              <span style="display:block;width:82%;height:100%;background:hsl(217 91% 60%)"></span>
-            </span>
-            <span style="width:30px;text-align:right;font-weight:600">82%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px">
-            <span style="width:70px;color:#3F4A5C">Motion</span>
-            <span style="flex:1;height:8px;border-radius:4px;background:#EEF0F4;overflow:hidden">
-              <span style="display:block;width:67%;height:100%;background:hsl(217 91% 60%)"></span>
-            </span>
-            <span style="width:30px;text-align:right;font-weight:600">67%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px">
-            <span style="width:70px;color:#3F4A5C">Pressure</span>
-            <span style="flex:1;height:8px;border-radius:4px;background:#EEF0F4;overflow:hidden">
-              <span style="display:block;width:48%;height:100%;background:hsl(25 95% 63%)"></span>
-            </span>
-            <span style="width:30px;text-align:right;font-weight:600">48%</span>
-          </div>
+      <!-- Floating Card 2: Student Understanding (Bottom-Left) -->
+      <div class="lz-floating-card-student" aria-hidden="true">
+        <!-- Radiating Sparkle Accent Left -->
+        <div style="position: absolute; left: -18px; top: -6px;" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round">
+            <line x1="2" y1="12" x2="7" y2="12"/>
+            <line x1="5" y1="5" x2="9" y2="9"/>
+            <line x1="12" y1="2" x2="12" y2="7"/>
+          </svg>
+        </div>
+
+        <div style="width: 42px; height: 42px; border-radius: 12px; background: #10B981; display: flex; align-items: center; justify-content: center; flex: none; color: #FFFFFF;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 700; color: #0F172A; line-height: 1.2;">Student Understanding</div>
+          <div style="font-family: var(--font-heading); font-size: 25px; font-weight: 800; color: #0F172A; line-height: 1.1; margin: 2px 0 1px;">+74%</div>
+          <div style="font-size: 11px; color: #64748B; line-height: 1.25;">average improvement in assessments</div>
         </div>
       </div>
 
-      <!-- Main Teacher Workspace Window -->
-      <div aria-label="Learniz teacher workspace: helicopter lift simulation, lesson parameters, class analytics and question generation" class="lz-hero-mockup-inner" style="position:relative;z-index:1;max-width:960px;margin:0 auto;background:#fff;border:1px solid #DCE2EC;border-radius:18px;box-shadow:0 40px 80px -40px rgba(11,19,36,.35),0 2px 8px rgba(11,19,36,.05);overflow:hidden;display:flex;min-height:520px">
-        <!-- Left Icon Rail -->
-        <div class="lz-hero-mockup-rail" style="width:56px;flex:none;background:#0B1324;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:6px">
-          <span style="width:30px;height:30px;border-radius:9px;background:hsl(217 91% 60%);display:grid;place-items:center;margin-bottom:10px;position:relative;overflow:hidden">
-            <span style="width:12px;height:12px;border-radius:50%;background:#fff;transform:translate(3px,-3px)"></span>
-            <span style="position:absolute;left:7px;bottom:7px;width:7px;height:7px;border-radius:50%;background:hsl(25 95% 63%)"></span>
-          </span>
-          <span title="Dashboard" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;opacity:.55">
-            <img src="/assets/icons/layout-dashboard.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
-          <span title="Animations" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.14)">
-            <img src="/assets/icons/atom.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
-          <span title="IntelliQ" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;opacity:.55">
-            <img src="/assets/icons/sparkles.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
-          <span title="Exams" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;opacity:.55">
-            <img src="/assets/icons/file-check-2.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
-          <span title="Analytics" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;opacity:.55">
-            <img src="/assets/icons/chart-column.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
-          <span title="Parents" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;opacity:.55">
-            <img src="/assets/icons/users.svg" alt="" width="18" height="18" style="filter:invert(1)">
-          </span>
+      <!-- Main Browser Frame Mockup (Static Product Preview) -->
+      <div class="lz-hero-browser-mockup" aria-label="Learniz platform interface preview showing helicopter physics simulation and AI insights">
+        <!-- Browser Top Bar -->
+        <div class="lz-browser-topbar">
+          <div class="lz-browser-dots" aria-hidden="true">
+            <span class="lz-browser-dot lz-browser-dot-red"></span>
+            <span class="lz-browser-dot lz-browser-dot-yellow"></span>
+            <span class="lz-browser-dot lz-browser-dot-green"></span>
+          </div>
+          <div class="lz-browser-breadcrumb">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span>Academiz</span>
+            <span>›</span>
+            <span>Class 9-B</span>
+            <span>›</span>
+            <span>Physics</span>
+            <span>›</span>
+            <span class="lz-browser-breadcrumb-active">Forces on a helicopter</span>
+          </div>
         </div>
 
-        <!-- Center Workspace Canvas -->
-        <div style="flex:1;min-width:0;display:flex;flex-direction:column">
-          <!-- Window Header Bar -->
-          <div style="height:50px;border-bottom:1px solid #EEF0F4;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 14px;font-size:12.5px">
-            <div style="display:flex;align-items:center;gap:6px;color:#6B7485;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
-              <span>Class 9-B</span><span>›</span><span>Physics</span><span>›</span>
-              <span style="color:#0B1324;font-weight:600">Forces on a helicopter</span>
+        <!-- Browser Body: Dark Navy Sidebar + Canvas -->
+        <div class="lz-browser-body">
+          <!-- Sidebar -->
+          <div class="lz-browser-sidebar">
+            <div class="lz-browser-sidebar-logo">
+              <div class="lz-browser-logo-mark">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF; transform: translate(2px, -2px);"></span>
+                <span style="position: absolute; left: 5px; bottom: 5px; width: 6px; height: 6px; border-radius: 50%; background: #F59E0B;"></span>
+              </div>
+              <span class="lz-browser-logo-text">Learniz</span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;flex:none">
-              <span style="padding:3px 8px;border-radius:999px;background:#E8F7EE;color:#15803D;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px">
-                <span style="width:6px;height:6px;border-radius:50%;background:#15803D"></span>Live
-              </span>
-              <span style="width:26px;height:26px;border-radius:50%;background:#EEF4FF;color:hsl(217 91% 40%);display:grid;place-items:center;font-size:10.5px;font-weight:700">PK</span>
+
+            <!-- Navigation Items -->
+            <div class="lz-sidebar-nav-item lz-sidebar-nav-active">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              </svg>
+              <span>Dashboard</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <span>Classes</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31L4.62 17.6A2 2 0 0 0 6.23 20.6h11.54a2 2 0 0 0 1.61-3l-5.38-8.29V2z"/>
+              </svg>
+              <span>Experiments</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <path d="M9 15l2 2 4-4"/>
+              </svg>
+              <span>Assessments</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+              <span>Reports</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              <span>Library</span>
+            </div>
+
+            <div class="lz-sidebar-nav-item">
+              <svg class="lz-sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              <span>Settings</span>
             </div>
           </div>
 
-          <!-- Body Canvas -->
-          <div class="lz-hero-mockup-canvas" style="flex:1;display:flex;flex-wrap:wrap;gap:14px;padding:14px;background:#F6F8FB">
-            <div style="flex:2 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px">
-              <!-- Helicopter Viewport -->
-              <div class="lz-hero-sim-viewport" style="position:relative;flex:1;min-height:250px;border-radius:12px;border:1px solid #E5E8EF;background:linear-gradient(180deg,#F3F7FF 0%,#FFFFFF 100%);overflow:hidden">
-                <div style="position:absolute;left:10px;top:10px;display:flex;gap:5px;flex-wrap:wrap;z-index:2">
-                  <span style="padding:3px 8px;border-radius:6px;background:#fff;border:1px solid #E5E8EF;font-size:11px;font-weight:600;color:#1F2A3D">Lift 11.9 kN</span>
-                  <span style="padding:3px 8px;border-radius:6px;background:#fff;border:1px solid #E5E8EF;font-size:11px;font-weight:600;color:#1F2A3D">Weight 11.8 kN</span>
-                  <span style="padding:3px 8px;border-radius:6px;background:#EEF4FF;border:1px solid #D9E4FB;font-size:11px;font-weight:600;color:hsl(217 91% 40%)">Hovering</span>
-                </div>
-                <div aria-hidden="true" style="position:absolute;left:50%;bottom:44%;transform:translateX(-50%);width:160px;height:60px">
-                  <span style="position:absolute;left:15px;top:0;width:130px;height:4px;border-radius:2px;background:#1F2A3D;transform-origin:center;animation:lzRotor .14s linear infinite"></span>
-                  <span style="position:absolute;left:78px;top:3px;width:4px;height:10px;background:#1F2A3D"></span>
-                  <span style="position:absolute;left:52px;top:12px;width:72px;height:28px;border-radius:16px 16px 12px 12px;background:#0B1324"></span>
-                  <span style="position:absolute;left:104px;top:18px;width:12px;height:12px;border-radius:50%;background:#BFD7FF"></span>
-                  <span style="position:absolute;left:4px;top:22px;width:52px;height:6px;border-radius:3px;background:#0B1324"></span>
-                  <span style="position:absolute;left:4px;top:8px;width:5px;height:20px;border-radius:2px;background:#0B1324"></span>
-                  <span style="position:absolute;left:56px;top:46px;width:66px;height:3px;border-radius:2px;background:#3F4A5C"></span>
-                </div>
-                <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:#DCE3EE"></div>
-                <div style="position:absolute;right:10px;bottom:18px;font-size:10.5px;color:#6B7485;font-family:ui-monospace,SFMono-Regular,monospace">t = 12.4 s · Δh = 0.0 m</div>
-              </div>
-
-              <!-- Quick Metrics -->
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,100px),1fr));gap:8px">
-                <div style="background:#fff;border:1px solid #E5E8EF;border-radius:10px;padding:8px 10px">
-                  <div style="font-size:10.5px;color:#6B7485;font-weight:500">Students exploring</div>
-                  <div style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin-top:2px">31<span style="font-size:12px;color:#98A1B2;font-weight:500"> / 34</span></div>
-                </div>
-                <div style="background:#fff;border:1px solid #E5E8EF;border-radius:10px;padding:8px 10px">
-                  <div style="font-size:10.5px;color:#6B7485;font-weight:500">Check-in test</div>
-                  <div style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin-top:2px">74%<span style="font-size:12px;color:#98A1B2;font-weight:500"> pass</span></div>
-                </div>
-                <div style="background:#fff;border:1px solid #E5E8EF;border-radius:10px;padding:8px 10px">
-                  <div style="font-size:10.5px;color:#6B7485;font-weight:500">Needs attention</div>
-                  <div style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin-top:2px;color:hsl(25 95% 45%)">6<span style="font-size:12px;color:#98A1B2;font-weight:500"> students</span></div>
-                </div>
+          <!-- Main Canvas Area -->
+          <div class="lz-browser-canvas">
+            <!-- Left ~60%: Helicopter Simulation Viewport -->
+            <div class="lz-canvas-sim-col">
+              <div class="lz-sim-viewport-box">
+                <img
+                  src="/assets/images/hero-helicopter-sim-sharp.png"
+                  alt="Helicopter physics simulation showing aerodynamic forces: Lift 11.9 kN, Weight 11.8 kN, Drag and Thrust while hovering"
+                  width="704"
+                  height="506"
+                  loading="eager"
+                  fetchpriority="high"
+                >
               </div>
             </div>
 
-            <!-- Parameters & IntelliQ Card -->
-            <div style="flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:12px">
-              <div style="background:#fff;border:1px solid #E5E8EF;border-radius:12px;padding:14px">
-                <div style="font-size:12px;font-weight:600;color:#0B1324;margin-bottom:10px">Simulation parameters</div>
-                <div style="font-size:12px;color:#3F4A5C;display:flex;justify-content:space-between">
-                  <span>Rotor speed</span><strong style="color:#0B1324">400 rpm</strong>
+            <!-- Right ~40%: Learning Insights & AI Explanation Cards -->
+            <div class="lz-canvas-insights-col">
+              <!-- Card 1: Learning Insights -->
+              <div class="lz-insights-card">
+                <div style="font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 12px;">Learning Insights</div>
+
+                <!-- Concept Mastery -->
+                <div style="margin-bottom: 11px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                    <div style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 22px; height: 22px; border-radius: 5px; background: #EFF6FF; display: inline-flex; align-items: center; justify-content: center; color: #2563EB;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                          <rect x="3" y="12" width="4" height="9" rx="1"/>
+                          <rect x="10" y="7" width="4" height="14" rx="1"/>
+                          <rect x="17" y="3" width="4" height="18" rx="1"/>
+                        </svg>
+                      </span>
+                      <span style="font-size: 12px; font-weight: 600; color: #1E293B;">Concept Mastery</span>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #0F172A;">82%</span>
+                  </div>
+                  <div style="height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+                    <div style="width: 82%; height: 100%; background: #2563EB; border-radius: 4px;"></div>
+                  </div>
                 </div>
-                <div style="margin:6px 0 12px;height:6px;border-radius:3px;background:#EEF0F4;position:relative">
-                  <span style="position:absolute;left:0;top:0;height:100%;width:43%;border-radius:3px;background:hsl(217 91% 60%)"></span>
-                  <span style="position:absolute;left:43%;top:50%;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid hsl(217 91% 60%);transform:translate(-50%,-50%)"></span>
+
+                <!-- Student Engagement -->
+                <div style="margin-bottom: 11px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                    <div style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 22px; height: 22px; border-radius: 5px; background: #ECFDF5; display: inline-flex; align-items: center; justify-content: center; color: #10B981;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                          <circle cx="8.5" cy="7" r="4"/>
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                      </span>
+                      <span style="font-size: 12px; font-weight: 600; color: #1E293B;">Student Engagement</span>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #0F172A;">67%</span>
+                  </div>
+                  <div style="height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+                    <div style="width: 67%; height: 100%; background: #10B981; border-radius: 4px;"></div>
+                  </div>
                 </div>
-                <div style="font-size:12px;color:#3F4A5C;display:flex;justify-content:space-between">
-                  <span>Mass</span><strong style="color:#0B1324">1,200 kg</strong>
-                </div>
-                <div style="margin:6px 0 2px;height:6px;border-radius:3px;background:#EEF0F4;position:relative">
-                  <span style="position:absolute;left:0;top:0;height:100%;width:50%;border-radius:3px;background:hsl(217 91% 60%)"></span>
-                  <span style="position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid hsl(217 91% 60%);transform:translate(-50%,-50%)"></span>
+
+                <!-- Assessment Accuracy -->
+                <div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                    <div style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 22px; height: 22px; border-radius: 5px; background: #FFFBEB; display: inline-flex; align-items: center; justify-content: center; color: #F59E0B;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14 2 14 8 20 8" fill="#FDE68A"/>
+                        </svg>
+                      </span>
+                      <span style="font-size: 12px; font-weight: 600; color: #1E293B;">Assessment Accuracy</span>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #0F172A;">48%</span>
+                  </div>
+                  <div style="height: 7px; background: #EEF2F6; border-radius: 4px; overflow: hidden;">
+                    <div style="width: 48%; height: 100%; background: #F59E0B; border-radius: 4px;"></div>
+                  </div>
                 </div>
               </div>
 
-              <div style="background:#fff;border:1px solid #E5E8EF;border-radius:12px;padding:14px;flex:1">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-                  <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600">
-                    <img src="/assets/icons/sparkles.svg" alt="" width="14" height="14">IntelliQ
-                  </span>
-                  <span style="font-size:11px;color:#6B7485">from this lesson</span>
+              <!-- Card 2: AI Explanation [BETA] -->
+              <div class="lz-insights-card">
+                <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 7px;">
+                  <span style="font-size: 13px; font-weight: 700; color: #0F172A;">AI Explanation</span>
+                  <span style="background: #F3E8FF; color: #7E22CE; font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em;">BETA</span>
                 </div>
-                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px">
-                  <span style="padding:3px 8px;border-radius:6px;background:#F3EFFF;color:hsl(258 90% 50%);font-size:11px;font-weight:600">Forces · Lift</span>
-                  <span style="padding:3px 8px;border-radius:6px;background:#F3F5F9;color:#3F4A5C;font-size:11px;font-weight:600">Medium</span>
-                  <span style="padding:3px 8px;border-radius:6px;background:#F3F5F9;color:#3F4A5C;font-size:11px;font-weight:600">3 MCQ</span>
+                <p style="margin: 0 0 9px; font-size: 11.5px; line-height: 1.42; color: #334155; font-weight: 500;">
+                  If rotor speed increases while mass stays constant, what happens to the net force on the helicopter?
+                </p>
+                <div style="background: #ECFDF5; border: 1px solid #D1FAE5; border-radius: 8px; padding: 9px 11px; display: flex; gap: 8px; align-items: flex-start;">
+                  <svg style="width: 15px; height: 15px; color: #10B981; flex: none; margin-top: 2px;" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <div style="font-size: 11.8px; font-weight: 700; color: #065F46; line-height: 1.3;">It increases upward</div>
+                    <div style="font-size: 11px; color: #047857; margin-top: 2px; line-height: 1.38;">Higher rotor speed increases lift, so the net force becomes upward.</div>
+                  </div>
                 </div>
-                <div style="font-size:12.5px;line-height:1.45;color:#1F2A3D">
-                  1. If rotor speed increases while mass stays constant, what happens to the net force on the helicopter?
-                </div>
-                <div style="margin-top:8px;display:grid;gap:4px;font-size:11.5px;color:#3F4A5C">
-                  <span style="display:flex;gap:6px"><span style="color:#98A1B2">A</span>It decreases</span>
-                  <span style="display:flex;gap:6px;color:#15803D;font-weight:600"><span>B</span>It increases upward</span>
-                  <span style="display:flex;gap:6px"><span style="color:#98A1B2">C</span>It stays the same</span>
-                </div>
-                <button type="button" tabindex="-1" style="margin-top:12px;width:100%;height:32px;border-radius:8px;border:0;background:#0B1324;color:#fff;font-size:12px;font-weight:600;cursor:pointer">Add to unit test</button>
               </div>
             </div>
           </div>
@@ -1955,7 +2125,12 @@
 
     <!-- Bottom Bar -->
     <div class="lz-footer-bottom">
-      <span>© 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.</span>
+      <div class="lz-footer-copy">
+        <span>© 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.</span>
+        <div class="lz-footer-credit" style="margin-top:6px;font-size:12px;color:#7D889D">
+          Designed and developed by <a href="https://creativals.com" target="_blank" rel="noopener noreferrer" style="color:#C5CCDA;text-decoration:underline;text-underline-offset:3px">creativals.com</a>
+        </div>
+      </div>
       <nav aria-label="Legal" class="lz-footer-legal-links">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms</a>

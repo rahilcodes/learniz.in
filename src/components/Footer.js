@@ -59,7 +59,12 @@ export function renderFooter() {
 
     <!-- Bottom Bar -->
     <div class="lz-footer-bottom">
-      <span>© 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.</span>
+      <div class="lz-footer-copy">
+        <span>© 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.</span>
+        <div class="lz-footer-credit" style="margin-top:6px;font-size:12px;color:#7D889D">
+          Designed and developed by <a href="https://creativals.com" target="_blank" rel="noopener noreferrer" style="color:#C5CCDA;text-decoration:underline;text-underline-offset:3px">creativals.com</a>
+        </div>
+      </div>
       <nav aria-label="Legal" class="lz-footer-legal-links">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms</a>

@@ -127,9 +127,14 @@ ${head}
 </main>
 
 <footer style="background:#fff;padding:24px 20px;border-top:1px solid #E5E8EF;text-align:center;font-size:13px;color:#6B7485">
-  © 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.
-  <a href="/privacy" style="color:#1F2A3D;margin-left:12px">Privacy</a>
-  <a href="/terms" style="color:#1F2A3D;margin-left:12px">Terms</a>
+  <div>
+    © 2026 Tattvatech Edu Solutions LLP. Learniz. Every class an experiment, not a lecture.
+    <a href="/privacy" style="color:#1F2A3D;margin-left:12px">Privacy</a>
+    <a href="/terms" style="color:#1F2A3D;margin-left:12px">Terms</a>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:#8A94A6">
+    Designed and developed by <a href="https://creativals.com" target="_blank" rel="noopener noreferrer" style="color:#4B5565;text-decoration:underline;text-underline-offset:3px">creativals.com</a>
+  </div>
 </footer>
 
 ${modal}
