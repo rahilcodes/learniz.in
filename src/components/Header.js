@@ -139,7 +139,7 @@ export function renderHeader(activePath = '') {
         <img src="/assets/icons/message-circle.svg" alt="" width="18" height="18">
       </a>
       <button type="button" data-open-demo class="lz-btn-outline lz-btn-sm" style="font-size:14px;padding:0 16px;height:40px;font-weight:600">Book a free demo</button>
-      <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-btn-primary lz-btn-sm lz-btn-login" aria-label="Login to Academiz">
+      <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-btn-primary lz-btn-sm lz-btn-login" aria-label="Login to Learniz">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
@@ -150,7 +150,7 @@ export function renderHeader(activePath = '') {
 
     <!-- Mobile Header Controls -->
     <div class="lz-mobile-only" style="align-items:center;gap:6px">
-      <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-btn-primary lz-btn-sm lz-btn-login" style="height:38px;padding:0 11px;font-size:13px;gap:5px;border-radius:9px" aria-label="Login to Academiz">
+      <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-btn-primary lz-btn-sm lz-btn-login" style="height:38px;padding:0 11px;font-size:13px;gap:5px;border-radius:9px" aria-label="Login to Learniz">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
@@ -265,12 +265,12 @@ export function renderHeader(activePath = '') {
 
   <!-- Bottom CTA Actions -->
   <div style="display:grid;gap:10px;margin-top:20px">
-    <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" style="height:48px;border-radius:11px;border:0;background:hsl(217 91% 60%);color:#fff;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-shadow:0 8px 20px -8px hsl(217 91% 60% / 0.8)">
+    <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" style="height:48px;border-radius:11px;border:0;background:hsl(217 91% 60%);color:#fff;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-shadow:0 4px 12px rgba(11,19,36,0.15)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
         <circle cx="12" cy="7" r="4"></circle>
       </svg>
-      Login to Academiz
+      Login to Learniz
     </a>
     <button type="button" data-open-demo style="height:48px;border-radius:11px;border:1px solid #D9DEE7;background:#fff;color:#0B1324;font-weight:600;font-size:15px;cursor:pointer">Book a free demo</button>
     <a href="${waHref}" target="_blank" rel="noopener" style="height:48px;border-radius:11px;border:1px solid #D9DEE7;background:#fff;color:#0B1324;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none">

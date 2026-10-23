@@ -215,7 +215,7 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 10px 24px -12px hsl(217 91% 60% / 0.8);
+  box-shadow: 0 4px 14px -2px rgba(11, 19, 36, 0.16);
   transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
   text-decoration: none;
 }
@@ -763,7 +763,7 @@ input::placeholder, textarea::placeholder {
   background: var(--color-primary-hover);
   color: #fff !important;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px -4px hsl(217 91% 60% / 0.5);
+  box-shadow: 0 4px 12px -2px rgba(11, 19, 36, 0.16);
 }
 
 .lz-btn-login:active {
@@ -1089,14 +1089,14 @@ input[type="range"]:active::-webkit-slider-thumb {
   gap: 8px;
   border: 0;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 12px rgba(11, 19, 36, 0.14);
   transition: all 0.15s ease;
 }
 
 .lz-hero-btn-primary:hover {
   background: #1D4ED8;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+  box-shadow: 0 6px 16px rgba(11, 19, 36, 0.18);
 }
 
 .lz-hero-btn-secondary {
@@ -1146,10 +1146,12 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .lz-hero-trust-sep {
-  width: 1px;
-  height: 14px;
-  background: #CBD5E1;
-  display: inline-block;
+  color: #94A3B8;
+  font-size: 13px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
 }
 
 @media (max-width: 640px) {
@@ -1450,6 +1452,140 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding-left: 28px;
 }
 
+/* ==========================================================================
+   Analytics Product Showcase Browser Mockup (Section 7)
+   Gives authentic software screenshot / application window appearance
+   ========================================================================== */
+
+.lz-analytics-showcase-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.lz-analytics-browser-mockup {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #DCE4F0;
+  border-radius: 20px;
+  box-shadow:
+    0 35px 70px -15px rgba(26, 44, 76, 0.18),
+    0 10px 30px -5px rgba(37, 99, 235, 0.10),
+    0 0 0 1px rgba(219, 234, 254, 0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.lz-analytics-topbar {
+  height: 44px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #EEF2F6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  gap: 16px;
+}
+
+.lz-analytics-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.lz-analytics-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lz-analytics-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563EB;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex: none;
+}
+
+.lz-analytics-body {
+  display: flex;
+  min-height: 520px;
+  background: #F8FAFC;
+}
+
+.lz-analytics-sidebar {
+  width: 165px;
+  flex: none;
+  background: #0B1324;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 10px;
+  gap: 4px;
+}
+
+.lz-analytics-main-canvas {
+  flex: 1;
+  min-width: 0;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.lz-analytics-floating-tag {
+  position: absolute;
+  z-index: 20;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 16px 36px -8px rgba(11, 19, 36, 0.16), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .lz-analytics-sidebar {
+    width: 48px;
+    padding: 12px 4px;
+    align-items: center;
+  }
+  .lz-analytics-sidebar-logo-text,
+  .lz-analytics-nav-item span {
+    display: none !important;
+  }
+  .lz-analytics-nav-item {
+    justify-content: center !important;
+    padding: 8px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .lz-analytics-sidebar {
+    display: none !important;
+  }
+  .lz-analytics-floating-tag {
+    display: none !important;
+  }
+}
+
 @media (max-width: 640px) {
   .lz-iq-options-grid {
     grid-template-columns: 1fr !important;
@@ -1523,3 +1659,220 @@ input[type="range"]:active::-webkit-slider-thumb {
     flex: 1 1 100% !important;
   }
 }
+
+/* ==========================================================================
+   Learniz Redesign Enhancements: Pillars, Metrics, Testimonials, Roadmap
+   ========================================================================== */
+
+/* 3 Core Pillars Cards */
+.lz-pillar-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -6px rgba(11, 19, 36, 0.06);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lz-pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -18px rgba(11, 19, 36, 0.16);
+  border-color: #CBD5E1;
+}
+
+.lz-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.lz-pillar-card.pillar-blue::before {
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
+}
+
+.lz-pillar-card.pillar-violet::before {
+  background: linear-gradient(90deg, #7C3AED, #A78BFA);
+}
+
+.lz-pillar-card.pillar-emerald::before {
+  background: linear-gradient(90deg, #059669, #34D399);
+}
+
+/* Verified Metrics Banner Strip */
+.lz-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0B1324 0%, #162238 100%);
+  color: #ffffff;
+  box-shadow: 0 24px 48px -20px rgba(11, 19, 36, 0.4);
+}
+
+.lz-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 640px) {
+  .lz-metric-item {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 0 0;
+  }
+  .lz-metric-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.lz-metric-number {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #FFFFFF 40%, #93C5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lz-metric-label {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #C5CCDA;
+  font-weight: 500;
+}
+
+/* Testimonial Cards */
+.lz-testimonial-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 4px 18px -6px rgba(11, 19, 36, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lz-testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -16px rgba(11, 19, 36, 0.12);
+}
+
+.lz-testimonial-quote {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #1E293B;
+  font-style: normal;
+  margin: 0;
+  position: relative;
+}
+
+.lz-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.lz-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex: none;
+}
+
+/* Post-Demo 4-Step Roadmap */
+.lz-roadmap-step {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 16px -6px rgba(11, 19, 36, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lz-roadmap-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -14px rgba(11, 19, 36, 0.12);
+  border-color: #CBD5E1;
+}
+
+.lz-step-badge {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+/* Simplified Product Showcase Cards */
+.lz-feature-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 40px 56px;
+  align-items: center;
+  padding: 48px 0;
+  border-bottom: 1px solid #EEF0F4;
+}
+
+.lz-feature-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lz-feature-preview-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px -12px rgba(11, 19, 36, 0.08), 0 1px 3px rgba(11, 19, 36, 0.04);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lz-feature-preview-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px -16px rgba(11, 19, 36, 0.12);
+}
+
+.lz-feature-topbar {
+  height: 42px;
+  border-bottom: 1px solid #EEF0F4;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+

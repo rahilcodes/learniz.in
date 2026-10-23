@@ -611,17 +611,41 @@
   // Founding Schools Counter & Indicators
   // =========================================================================
   function initFoundingSchoolsCounter() {
-    const counterDisplay = document.getElementById('fs-counter-val');
-    const grid = document.getElementById('fs-cells-grid');
-    if (!grid) return;
+    const grids = document.querySelectorAll('#fs-cells-grid, [data-fs-grid]');
+    if (!grids.length) return;
 
-    const count = 10;
-    let cellsHtml = '';
-    for (let i = 0; i < 10; i++) {
-      const color = i < count ? 'hsl(25, 95%, 63%)' : 'rgba(255, 255, 255, 0.12)';
-      cellsHtml += `<span style="height:10px;border-radius:3px;background:${color}"></span>`;
-    }
-    grid.innerHTML = cellsHtml;
+    grids.forEach(grid => {
+      const remainingAttr = grid.getAttribute('data-remaining') || '4';
+      const remaining = Math.max(0, Math.min(10, parseInt(remainingAttr, 10)));
+      const enrolled = 10 - remaining;
+
+      // Find parent card container
+      const parent = grid.closest('div[style*="background:#121D33"]') || grid.parentElement;
+      const counterDisplay = parent ? parent.querySelector('#fs-counter-val') : document.getElementById('fs-counter-val');
+      if (counterDisplay) {
+        counterDisplay.textContent = remaining;
+      }
+
+      const labelEnrolled = parent ? parent.querySelector('[data-fs-enrolled]') : null;
+      if (labelEnrolled) {
+        labelEnrolled.textContent = `${enrolled} schools enrolled / reserved`;
+      }
+      const labelOpen = parent ? parent.querySelector('[data-fs-open]') : null;
+      if (labelOpen) {
+        labelOpen.textContent = `${remaining} spots open`;
+      }
+
+      let cellsHtml = '';
+      for (let i = 0; i < 10; i++) {
+        const isEnrolled = i < enrolled;
+        // Enrolled slots are shown in filled muted light; open spots are bright orange
+        const color = isEnrolled ? 'rgba(255, 255, 255, 0.28)' : 'hsl(25, 95%, 63%)';
+        const tooltip = isEnrolled ? `Slot ${i + 1}: Enrolled School` : `Slot ${i + 1}: Open for Application`;
+        cellsHtml += `<span title="${tooltip}" style="height:10px;border-radius:3px;background:${color};transition:background 0.2s ease" aria-hidden="true"></span>`;
+      }
+      grid.innerHTML = cellsHtml;
+      grid.setAttribute('aria-label', `${remaining} of 10 places remaining, ${enrolled} schools enrolled`);
+    });
   }
 
   // =========================================================================

@@ -42,22 +42,22 @@ ${header}
         <p class="lz-section-subtitle" style="color:#C5CCDA;max-width:540px">
           A limited partnership for forward-thinking Indian institutions. Run Learniz early with a free 30-day pilot and permanent founding-tier pricing.
         </p>
-        <dl style="margin:28px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,90px),1fr));gap:16px 24px">
-          <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:12px">
-            <dt style="font-size:12px;color:#9AA4B8;font-weight:500">Places</dt>
-            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:26px;font-weight:700">10</dd>
+        <dl style="margin:28px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:16px 20px">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:14px 16px">
+            <dt style="font-size:11px;color:#9AA4B8;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Cohort Cap</dt>
+            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:22px;font-weight:800;color:#fff">10 Schools</dd>
           </div>
-          <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:12px">
-            <dt style="font-size:12px;color:#9AA4B8;font-weight:500">Pilot</dt>
-            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:26px;font-weight:700">Free 30-Day</dd>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:14px 16px">
+            <dt style="font-size:11px;color:#9AA4B8;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Pilot</dt>
+            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:22px;font-weight:800;color:hsl(25 95% 68%)">30 Days Free</dd>
           </div>
-          <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:12px">
-            <dt style="font-size:12px;color:#9AA4B8;font-weight:500">Pricing</dt>
-            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:26px;font-weight:700">Lifetime Founding</dd>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:14px 16px">
+            <dt style="font-size:11px;color:#9AA4B8;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Pricing</dt>
+            <dd style="margin:4px 0 0;font-family:Figtree,Inter,sans-serif;font-size:22px;font-weight:800;color:#fff">Locked 50% Off</dd>
           </div>
         </dl>
         <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
-          <button type="button" data-open-demo class="lz-btn-primary" style="background:hsl(25 95% 63%)">Book a free demo</button>
+          <button type="button" data-open-demo class="lz-btn-primary" style="background:hsl(25 95% 63%)">Apply for Founding Cohort</button>
           <a href="${waHref}" target="_blank" rel="noopener" class="lz-btn-outline" style="border:1px solid rgba(255,255,255,.3);color:#fff;background:transparent">
             WhatsApp Priority Line
           </a>
@@ -65,19 +65,26 @@ ${header}
       </div>
 
       <!-- Live Counter Box -->
-      <div style="justify-self:center;width:100%;max-width:440px;background:#121D33;border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:clamp(20px,4vw,32px);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:13px;font-weight:600;color:#C5CCDA">Cohort Places Left</span>
-          <span style="padding:4px 9px;border-radius:6px;background:rgba(255,255,255,.08);font-size:11px;font-family:ui-monospace,SFMono-Regular,monospace;color:#9AA4B8">Fall 2026</span>
+      <div style="justify-self:center;width:100%;max-width:440px;background:#121D33;border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:clamp(20px,4vw,32px);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <span style="font-size:12.5px;font-weight:700;color:#9AA4B8;letter-spacing:.05em;text-transform:uppercase">Cohort 2026 Admissions</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);font-size:11.5px;font-weight:600;color:#E1E7F2;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#22C55E"></span>Reviewing Applications</span>
         </div>
-        <div style="margin-top:12px;display:flex;align-items:baseline;gap:8px">
-          <span id="fs-counter-val" style="font-family:Figtree,Inter,sans-serif;font-size:76px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">10</span>
-          <span style="font-size:20px;color:#9AA4B8">of 10</span>
+        <div style="margin-top:20px;display:flex;align-items:baseline;gap:10px">
+          <span id="fs-counter-val" style="font-family:Figtree,Inter,sans-serif;font-size:clamp(54px,7vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">4</span>
+          <div style="display:flex;flex-direction:column">
+            <span style="font-size:16px;font-weight:700;color:#fff;line-height:1.2">Spots Remaining</span>
+            <span style="font-size:13px;color:#9AA4B8;line-height:1.2">out of 10 school cap</span>
+          </div>
         </div>
-        <div id="fs-cells-grid" role="img" aria-label="10 of 10 places remaining" style="margin-top:24px;display:grid;grid-template-columns:repeat(10,1fr);gap:4px">
+        <div id="fs-cells-grid" data-remaining="4" role="img" aria-label="4 of 10 places remaining" style="margin-top:20px;display:grid;grid-template-columns:repeat(10,1fr);gap:6px">
           <!-- Populated by JS -->
         </div>
-        <p style="margin-top:24px;font-size:13.5px;line-height:1.55;color:#C5CCDA;margin-bottom:0">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:10px;color:#9AA4B8">
+          <span data-fs-enrolled style="color:#C5CCDA">6 schools enrolled / reserved</span>
+          <span data-fs-open style="color:hsl(25 95% 68%);font-weight:600">4 spots open</span>
+        </div>
+        <p style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;line-height:1.55;color:#C5CCDA;margin-bottom:0">
           Applications are evaluated based on school leadership enthusiasm and willingness to pilot experiential pedagogy in STEM classrooms.
         </p>
       </div>

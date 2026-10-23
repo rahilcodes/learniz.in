@@ -32,7 +32,7 @@ export function renderFooter() {
         <a href="/features/lms-exam-builder" class="lz-footer-link">LMS &amp; Exam Builder</a>
         <a href="/features/analytics" class="lz-footer-link">Academic Analytics</a>
         <a href="/see-it-live" class="lz-footer-link">See It Live</a>
-        <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-footer-link" style="display:inline-flex;align-items:center;gap:6px">Academiz Login <img src="/assets/icons/external-link.svg" alt="" width="12" height="12" style="opacity:.6"></a>
+        <a href="https://app.learniz.in/login" target="_blank" rel="noopener noreferrer" class="lz-footer-link" style="display:inline-flex;align-items:center;gap:6px">Learniz App Login <img src="/assets/icons/external-link.svg" alt="" width="12" height="12" style="opacity:.6"></a>
       </nav>
 
       <!-- Solutions Navigation -->
