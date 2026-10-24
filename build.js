@@ -5,6 +5,8 @@
 
 import fs from 'fs';
 import path from 'path';
+import { render404 } from './src/pages/not_found.js';
+import { minifyCss } from './src/components/SEOHead.js';
 
 // Page Renderers
 import { renderHomePage } from './src/pages/home.js';
@@ -79,7 +81,9 @@ function copyDir(src, dest) {
     if (entry.isDirectory()) {
       copyDir(srcPath, destPath);
     } else {
-      fs.copyFileSync(srcPath, destPath);
+      // read+write (with one retry) rather than copyFileSync: more tolerant of synced/mounted folders
+      try { fs.writeFileSync(destPath, fs.readFileSync(srcPath)); }
+      catch (e) { fs.rmSync(destPath, { force: true }); fs.writeFileSync(destPath, fs.readFileSync(srcPath)); }
     }
   }
 }
@@ -110,9 +114,17 @@ async function build() {
   // 1. Ensure dist exists
   fs.mkdirSync(DIST, { recursive: true });
 
-  // 2. Copy Assets
+  // 2. Copy Assets (clean first so removed files do not linger)
   console.log('Copying static assets to dist/assets/…');
+  fs.rmSync(path.resolve(DIST, 'assets'), { recursive: true, force: true });
+  fs.rmSync(path.resolve(DOCS, 'assets'), { recursive: true, force: true });
   copyDir(path.resolve('src/assets'), path.resolve(DIST, 'assets'));
+
+  // Minify stylesheets in place (no build dependencies)
+  for (const f of fs.readdirSync(path.resolve(DIST, 'assets/css'))) {
+    const fp = path.resolve(DIST, 'assets/css', f);
+    fs.writeFileSync(fp, minifyCss(fs.readFileSync(fp, 'utf8')), 'utf8');
+  }
 
   // Copy root level icons to dist root as well
   if (fs.existsSync('src/assets/images/favicon.png')) {
@@ -163,28 +175,7 @@ async function build() {
 
   // 4. Generate 404.html
   console.log('Generating 404.html…');
-  const raw404Html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Page Not Found | Learniz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/assets/images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body style="min-height:100vh;display:grid;place-items:center;background:#0B1324;font-family:Inter,sans-serif;color:#fff;margin:0;padding:24px;box-sizing:border-box">
-  <div style="text-align:center;max-width:520px;padding:48px 32px;background:#111C38;border:1px solid rgba(255,255,255,0.1);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,0.4)">
-    <img src="/assets/images/learniz-logo-white.png" alt="Learniz" style="height:36px;width:auto;margin:0 auto 24px;display:block">
-    <div style="font-size:76px;font-weight:800;color:hsl(217 91% 60%);line-height:1;font-family:Figtree,sans-serif">404</div>
-    <h1 style="font-family:Figtree,sans-serif;font-size:24px;font-weight:700;margin:16px 0 10px;color:#fff">Page Not Found</h1>
-    <p style="color:#9AA4B8;font-size:15px;line-height:1.55;margin:0 0 28px">The page you are looking for doesn't exist or may have moved.</p>
-    <a href="/" class="lz-btn-primary" style="display:inline-flex;padding:0 24px;height:46px;align-items:center;border-radius:10px;background:hsl(217 91% 60%);color:#fff;text-decoration:none;font-weight:600;font-size:15px">Return to Homepage</a>
-  </div>
-</body>
-</html>`;
+  const raw404Html = render404();
   const notFoundHtml = BASE_PATH ? applyBasePath(raw404Html, BASE_PATH) : raw404Html;
   fs.writeFileSync(path.join(DIST, '404.html'), notFoundHtml, 'utf-8');
 

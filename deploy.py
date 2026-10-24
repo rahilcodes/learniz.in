@@ -121,8 +121,9 @@ def verify_live():
         "/book-demo",
         "/about",
         "/contact",
-        "/assets/css/main.css",
-        "/assets/js/main.js",
+        "/assets/css/site.css",
+        "/assets/css/tokens.css",
+        "/assets/js/site.js",
         "/assets/images/favicon.png",
         "/robots.txt",
         "/sitemap.xml"

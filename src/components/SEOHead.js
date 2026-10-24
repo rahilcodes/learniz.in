@@ -1,19 +1,28 @@
 /**
  * SEO Head Component
- * Generates Title, Meta Tags, Open Graph, Twitter Cards, Canonical, Fonts & Schema
+ * Title, meta, canonical, Open Graph, Twitter, JSON-LD, fonts, theme bootstrap.
  */
+
+import fs from 'fs';
+import path from 'path';
+
+function minifyCss(css) {
+  return css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{}:;,>])\s*/g, '$1').replace(/;}/g, '}').trim();
+}
+const TOKENS = minifyCss(fs.readFileSync(path.resolve('src/assets/css/tokens.css'), 'utf8'));
+export { minifyCss };
 
 export function renderHead({
   title = "Concept Clarity in Every Class | Learniz",
   description = "Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood. Outcomes you can see.",
   path = "/",
   schema = null,
-  article = null
+  article = null,
+  noindex = false
 }) {
   const canonicalUrl = `https://learniz.in${path === '/' ? '' : path}`;
   const ogImage = "https://learniz.in/assets/images/learniz-social-preview.jpg";
 
-  // Base Organization & WebSite JSON-LD
   const defaultSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -52,8 +61,13 @@ export function renderHead({
 <title>${title}</title>
 <meta name="description" content="${description}">
 <meta name="author" content="TATTVATECH EDU SOLUTIONS LLP">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="${noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}">
+<meta name="theme-color" content="#161826" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f7fb" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="${canonicalUrl}">
+
+<!-- Theme bootstrap: runs before first paint so the page never flashes the wrong theme -->
+<script>(function(){try{var t=localStorage.getItem('lz-theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="${article ? 'article' : 'website'}">
@@ -78,13 +92,13 @@ export function renderHead({
 <link rel="icon" href="/assets/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 
-<!-- Google Fonts: Figtree & Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<!-- Fonts: Inter 400/500, self-hosted -->
+<link rel="preload" href="/assets/fonts/inter-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-<!-- Main Stylesheet -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Design tokens, inlined so the first paint already has them; components follow -->
+<style>${TOKENS}</style>
+<link rel="stylesheet" href="/assets/css/site.css">
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">

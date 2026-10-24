@@ -1,7 +1,7 @@
 # Academiz by Learniz — Official Website
 
 > **Modern, High-Performance Website & Experiential Learning Platform Showcase**  
-> Developed for **TATTVATECH EDU SOLUTIONS LLP** based on the Claude Design system, matching brand colors, typography (`Figtree` + `Inter`), interactive simulations, and responsive architecture.
+> Developed for **TATTVATECH EDU SOLUTIONS LLP**. Redesigned on the Nocturne design system (Inter, dark/light themes, accent as line and glow), with HTML product mocks, live simulations and responsive architecture.
 
 ---
 
@@ -52,16 +52,18 @@ learniz.in/
 │   └── assets/                # CSS, JS, SVG icons, and images
 └── src/
     ├── assets/
-    │   ├── css/main.css       # Complete CSS design tokens & responsive stylesheet
-    │   ├── js/main.js         # Interactive runtime (simulations, modal, FAQ search, drawer)
-    │   ├── icons/             # 42+ standalone inline Lucide SVG icons (zero external CDN lag)
-    │   └── images/            # Brand logos, hero graphics, illustrations, and social cards
+    │   ├── css/tokens.css     # Design tokens (dark + light)
+    │   ├── css/site.css       # Components + page vocabulary
+    │   ├── js/site.js         # Runtime (theme, nav, reveals, sticky steps, tabs, FAQ, sims, generator, forms, modal)
+    │   ├── fonts/             # Inter 400/500 woff2
+    │   └── images/            # Favicon, social card, legacy images
     ├── components/
-    │   ├── Header.js          # Responsive navigation matching SiteHeader.dc.html
-    │   ├── Footer.js          # Structured footer matching SiteFooter.dc.html
-    │   ├── BookingModal.js    # Interactive demo modal with live form validation
-    │   ├── WhatsAppFloat.js   # Sticky WhatsApp communication pill
-    │   └── SEOHead.js         # Canonical URLs, Open Graph, Twitter cards, JSON-LD schemas
+    │   ├── layout.js          # Page shell + section builders (hero, head, rows, faq, cta, panels, story)
+    │   ├── Header.js          # Fixed nav (frosted on scroll), dropdowns, mobile menu, LP header
+    │   ├── Footer.js          # Footer, sticky mobile CTA, WhatsApp pill, LP footer
+    │   ├── BookingModal.js    # Demo modal + shared lead-form fields
+    │   ├── icons.js           # Inline Phosphor icons
+    │   └── SEOHead.js         # Meta, canonical, OG/Twitter, JSON-LD, fonts, theme bootstrap
     └── pages/                 # Modular page templates (pre-rendered for peak SEO)
         ├── home.js
         ├── academiz.js
@@ -91,23 +93,37 @@ learniz.in/
 
 ---
 
-## 🎨 Design System & Visual Tokens
+## 🎨 Design System — Nocturne (adapted)
 
-The styling strictly adheres to the Claude Design specifications (`home.dc.html`, `SiteHeader.dc.html`, `SiteFooter.dc.html`):
+The site follows the approved redesign in `design_handoff_learniz_redesign/`. One token layer, two themes.
 
-| Token | CSS Variable | Hex / Value | Description |
-|---|---|---|---|
-| Primary Indigo | `--primary` | `hsl(217 91% 60%)` (`#3B82F6`) | Core brand action color, active states, buttons |
-| Primary Dark | `--primary-dark` | `hsl(221 83% 53%)` | Hover states and deep emphasis |
-| Purple Accent | `--accent-purple`| `hsl(258 90% 66%)` (`#8B5CF6`) | Gradient shifts and badge highlights |
-| Orange Accent | `--accent-orange`| `hsl(25 95% 63%)` (`#FB923C`) | High-conversion CTAs and warning badges |
-| Background Dark| `--bg-dark` | `#0B1324` | Hero canvas and deep dark surfaces |
-| Dark Blue Card | `--bg-dark-card`| `#111C38` | Interactive simulator consoles and code cards |
-| Surface Light | `--bg-light` | `#F8FAFC` | Light alternating section backgrounds |
-| Surface White | `--bg-white` | `#FFFFFF` | Main card background and modal surface |
-| Typography | `--font-display`, `--font-sans` | `'Figtree'`, `'Inter'` | Clean, modern, highly legible geometric typefaces |
+- `src/assets/css/tokens.css` — every colour, ramp, font, space, radius, shadow and motion token. Dark is the default; `html[data-theme="light"]` inverts the ramps. The file is inlined into `<head>` at build time so the first paint already has the tokens.
+- `src/assets/css/site.css` — Nocturne components (`.btn`, `.tag`, `.input`, `.card`, `.table`) plus the page vocabulary: `.hero`, `.kicker`/`.h2`/`.lede`, `.two-col`, `.panel` (HTML product mocks), `.rows` (numbered rows), `.tabs`, `.story`/`.sticky` (sticky-scroll), `.stats` (the one saturated band), `.faq`, `.prose`, `.form`, `.ph` (placeholder), nav, footer, sticky mobile CTA. Mobile-first; breakpoints 960px and 560px.
+- Type: Inter only (self-hosted woff2, 400 and 500), headings never bolder than 500.
+- Icons: Phosphor (regular), inlined from `src/components/icons.js` — `icon('arrowRight', 15)`.
+- Theme toggle in the nav, persisted in `localStorage['lz-theme']`, `prefers-color-scheme` honoured on first visit, no flash (bootstrap script in `SEOHead.js`).
+- Motion: CSS + IntersectionObserver only (`.rv` reveals, sticky steps, count-ups, tab cross-fades); `prefers-reduced-motion` disables everything.
 
----
+| Token | Dark | Light |
+|---|---|---|
+| `--color-bg` | `#161826` | `#f7f7fb` |
+| `--color-surface` | `#232532` | `#ffffff` |
+| `--color-text` | `#e9e9ed` | `#161826` |
+| `--color-accent` | `#9184d9` | `#6d5fc4` |
+| `--color-section` (stat band) | `#262a60` | same |
+
+Missing assets are labelled placeholders — see `PLACEHOLDERS.md`. The audit and page plan are in `REDESIGN_AUDIT.md`.
+
+### Lead forms
+
+All four forms (nav/sticky modal, `/book-demo`, `/contact`, `/lp/demo`) post through one function in `site.js`.
+Set the endpoint before `site.js` loads, e.g. in `SEOHead.js`:
+
+```html
+<script>window.LEARNIZ_LEAD_ENDPOINT = 'https://…/your-endpoint';</script>
+```
+
+The payload is JSON (`name, school, city, role, phone, email, message, page, source`). With no endpoint set the forms simulate success (as before).
 
 ## ⚡ Interactive Features Implemented
 

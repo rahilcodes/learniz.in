@@ -27,9 +27,9 @@ urls = [
     '/refund',
     '/lp/founding-schools',
     '/lp/demo',
-    '/assets/css/main.css',
-    '/assets/js/main.js',
-    '/assets/icons/atom.svg',
+    '/assets/css/site.css',
+    '/assets/css/tokens.css',
+    '/assets/js/site.js',
     '/assets/images/favicon.png',
     '/sitemap.xml',
     '/robots.txt'

@@ -1,289 +1,130 @@
 /**
- * Learniz Platform Overview Page
- * URL: /platform (also aliased from /academiz)
+ * Platform overview — /platform (also served at /academiz)
  */
+import { page, hero, head, rows, rowsGrid, cta, story, dashboardPanel, simPanel, questionsPanel, principalPanel, icon } from '../components/layout.js';
 
-import { renderHeader } from '../components/Header.js';
-import { renderFooter } from '../components/Footer.js';
-import { renderBookingModal } from '../components/BookingModal.js';
-import { renderWhatsAppFloat } from '../components/WhatsAppFloat.js';
-import { renderHead } from '../components/SEOHead.js';
+const MODULES = [
+  { n: '01', title: 'Interactive Animations', body: 'Learning by Doing: physics, chemistry and biology models where teachers adjust variables live and students see the effect immediately.', kicker: 'On classroom screen', note: 'Teacher changes rotor speed; the class predicts, then watches lift respond.', href: '/features/interactive-animations', link: 'Deep dive into animations' },
+  { n: '02', title: 'Question Generator', body: 'Assessment in Seconds: ten questions in about ten seconds, auto-tagged by topic, difficulty and format, for teachers to review and edit.', kicker: 'Question generator', note: '10 questions · answer keys · tagged by topic and difficulty · ready to push or print.', href: '/features/intelliq', link: 'Explore the question generator' },
+  { n: '03', title: 'LMS & Exam Builder', body: 'Formative Assessment, Built In: a structured chapter → topic hierarchy with configurable timers, negative marking and pass criteria.', kicker: 'Exam builder', note: 'Chapter → topic → question set. Timer, marking scheme and schedule in one place.', href: '/features/lms-exam-builder', link: 'Examine LMS workflows' },
+  { n: '04', title: 'Academic Analytics', body: 'Early Gap Detection: question-level accuracy heatmaps, time analysis and batch diagnostics, weeks before board examinations.', kicker: 'Principal view', note: 'Class-wise accuracy with the weak concept named and a remedial period suggested.', href: '/features/analytics', link: 'Review academic analytics' }
+];
+
+function examBuilderPanel() {
+  return `
+      <div class="panel">
+        <div class="panel-head"><strong>Exam builder</strong><span>›</span><span>Class 9 · Physics · Unit Test 3</span><span class="chip end">Scheduled</span></div>
+        <div class="panel-body" style="gap:10px">
+          <div class="label">Structure</div>
+          <div class="rows" style="box-shadow:none">
+            <div class="row" style="padding:12px 14px;grid-template-columns:1fr auto"><span class="muted">Chapter 9 · Force and Laws of Motion</span><span class="chip chip-neutral">3 topics</span></div>
+            <div class="row" style="padding:12px 14px;grid-template-columns:1fr auto"><span style="padding-left:14px">Balanced and unbalanced forces</span><span class="muted">8 Q</span></div>
+            <div class="row" style="padding:12px 14px;grid-template-columns:1fr auto"><span style="padding-left:14px">Newton's second law</span><span class="muted">9 Q</span></div>
+            <div class="row" style="padding:12px 14px;grid-template-columns:1fr auto"><span style="padding-left:14px">Conservation of momentum</span><span class="muted">8 Q</span></div>
+          </div>
+          <div class="label" style="margin-top:8px">Settings</div>
+          <div class="form-2" style="gap:8px">
+            <div class="opt"><b>⏱</b>45 minutes · auto-submit</div><div class="opt"><b>−</b>Negative marking · 0.25</div>
+            <div class="opt"><b>✓</b>Pass mark · 40%</div><div class="opt right"><b>↗</b>Push to 9-A, 9-B · Friday 9:40</div>
+          </div>
+        </div>
+      </div>`;
+}
 
 export function renderAcademizPage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Learniz",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Web browser, Chrome OS, Windows, Android, iOS",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "INR",
-      "description": "Free 30-day pilot for qualified schools in the Founding Schools Programme"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "Learniz",
-      "legalName": "TATTVATECH EDU SOLUTIONS LLP"
-    },
-    "description": "Experiential learning platform for Indian schools featuring teacher-controlled interactive animations, AI-assisted question generation, an LMS with exam builder, and academic analytics."
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Learniz",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web browser, Chrome OS, Windows, Android, iOS",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "description": "Free 30-day pilot for qualified schools in the Founding Schools Programme" },
+        "provider": { "@type": "Organization", "name": "Learniz", "legalName": "TATTVATECH EDU SOLUTIONS LLP" },
+        "description": "Experiential learning platform for Indian schools featuring teacher-controlled interactive animations, AI-assisted question generation, an LMS with exam builder, and academic analytics."
+      }
+    ]
   };
 
-  const head = renderHead({
-    title: "Competency-Based Learning Platform for Schools | Learniz",
-    description: "Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood. Outcomes you can see.",
-    path: "/platform",
-    schema
-  });
+  const body = `
+${hero({
+    tags: [['Platform overview', 'tag-accent'], ['NEP 2020 · NCF-SE 2023 · CBSE · ICSE · State', 'tag-neutral']],
+    h1: 'Concept Clarity in every class.', h1b: 'Outcomes you can see.',
+    lede: 'Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood.',
+    fine: 'Cloud hosted in India (AWS). Runs on the screens, panels and devices your classrooms already have.',
+    art: dashboardPanel({ compact: true, badge: true }), tilt: true
+  })}
 
-  const header = renderHeader('/platform');
-  const footer = renderFooter();
-  const modal = renderBookingModal();
-  const whatsapp = renderWhatsAppFloat();
-  const waHref = "https://wa.me/919032181083?text=" + encodeURIComponent("Hi, I'd like to book a free Learniz demo for my school.");
+<!-- Why schools switch (from the previous homepage) -->
+<section class="section" aria-labelledby="why-h">
+  <div class="container">
+    <div class="head">${head({ kicker: 'Competency-Based Learning', h2: 'Competency-Based Learning across every classroom.', lede: 'Most schools run teaching, assessment and reporting as separate tasks on separate tools. Learniz links them, so what happens in class informs what gets tested and what gets reported.' }).replace('class="h2 rv"', 'class="h2 rv" id="why-h"')}</div>
+    ${rowsGrid([
+      { t: 'Concepts that are hard to visualise are taught as text and diagrams.', b: '<strong>With Learniz:</strong> teacher-controlled interactive animations let the class change a variable and watch what happens. <a href="/features/interactive-animations">Interactive Animations</a>' },
+      { t: 'Setting question papers takes evenings and weekends.', b: '<strong>With Learniz:</strong> Assessment in Seconds. Tagged questions by topic, difficulty and format, for teacher review. <a href="/features/intelliq">Question Generator</a>' },
+      { t: 'Teaching, testing and tracking live in different tools and registers.', b: '<strong>With Learniz:</strong> content, exams and progress sit in one chapter → topic structure. <a href="/features/lms-exam-builder">LMS &amp; Exam Builder</a>' },
+      { t: 'Marks show who scored low, not which concept was misunderstood.', b: '<strong>With Learniz:</strong> Early Gap Detection. Question-level accuracy and time analysis point to the exact gap, weeks before exams. <a href="/features/analytics">Academic Analytics</a>' },
+      { t: 'Parents hear about progress at the term-end meeting.', b: '<strong>With Learniz:</strong> Parent Confidence. Continuous progress visibility, in plain language. <a href="/for-parents">For Parents</a>' }
+    ], 3)}
+  </div>
+</section>
 
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-${head}
-</head>
-<body>
-${header}
+<!-- Four modules · sticky scroll -->
+<section class="section-bottom section-line" id="modules" aria-labelledby="mod-h">
+  <div class="container section-top">
+    <span class="kicker rv">System architecture</span>
+    <h2 class="h2 rv" id="mod-h" style="--d:.08s;max-width:22ch">Competency-Based Learning: four connected capabilities.</h2>
+    <p class="lede rv" style="--d:.16s">Instead of fragmented tools, Learniz connects classroom experiments, question drafting, structured syllabus delivery and Early Gap Detection.</p>
+    ${story(MODULES.map(m => ({ ...m, body: `${m.body} <a href="${m.href}" style="white-space:nowrap">${m.link}${icon('arrowRight', 12)}</a>` })), [simPanel({ id: 'platform-sim' }), questionsPanel(), examBuilderPanel(), principalPanel()], { id: 'modules-story' })}
+  </div>
+</section>
 
-<main id="main-content">
-  <!-- Hero Section -->
-  <section style="position:relative;background:radial-gradient(70% 60% at 50% 0%,#EEF4FF 0%,rgba(255,255,255,0) 70%);padding:clamp(48px,7vw,84px) 20px clamp(40px,6vw,64px)">
-    <div class="lz-container" style="text-align:center">
-      <p class="lz-eyebrow">LEARNIZ PLATFORM OVERVIEW</p>
-      <h1 class="lz-section-title" style="font-size:clamp(34px,5.5vw,62px);margin-top:16px;max-width:920px;margin-left:auto;margin-right:auto">
-        Concept Clarity in every class. Outcomes you can see.
-      </h1>
-      <p class="lz-section-subtitle" style="max-width:680px;margin-left:auto;margin-right:auto">
-        Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood.
-      </p>
-      <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-        <button type="button" data-open-demo class="lz-btn-primary">Book a free demo</button>
-        <a href="/see-it-live" class="lz-btn-outline">
-          <img src="/assets/icons/play.svg" alt="" width="16" height="16">
-          See Demos in Action
-        </a>
-      </div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;font-size:13.5px;color:#6B7485">
-        <span style="display:inline-flex;align-items:center;gap:6px"><img src="/assets/icons/check.svg" width="16" height="16" style="opacity:.7">NEP 2020 &amp; NCF-SE 2023 Compliant</span>
-        <span style="display:inline-flex;align-items:center;gap:6px"><img src="/assets/icons/check.svg" width="16" height="16" style="opacity:.7">CBSE, ICSE &amp; State Boards</span>
-        <span style="display:inline-flex;align-items:center;gap:6px"><img src="/assets/icons/check.svg" width="16" height="16" style="opacity:.7">Cloud Hosted (India AWS)</span>
-      </div>
+<!-- Policy & curriculum -->
+<section class="section section-line" aria-labelledby="policy-h">
+  <div class="container two-col two-col-start">
+    <div class="head">${head({ kicker: 'Policy & curriculum', h2: 'NCF-SE 2023 Ready: built for experiential learning policy.', lede: 'The National Education Policy shifts focus from rote recall to competency-based experiential learning. Learniz provides the concrete classroom tools required to satisfy these mandates without burdening faculty.' }).replace('class="h2 rv"', 'class="h2 rv" id="policy-h"')}
+      <ul class="checks rv" style="--d:.2s">
+        <li>${icon('check', 18)}<span><strong>Experiential pedagogy.</strong> Students manipulate physical constants, test hypotheses and deduce scientific laws.</span></li>
+        <li>${icon('check', 18)}<span><strong>Continuous formative assessment.</strong> Low-stakes, frequent checks replace intimidating term-end bottlenecks.</span></li>
+        <li>${icon('check', 18)}<span><strong>Parent Confidence and transparent reporting.</strong> Parents view subject mastery trajectories rather than arbitrary letter grades.</span></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- Platform Architecture: 4 Modules -->
-  <section style="padding:clamp(56px,8vw,96px) 20px;border-top:1px solid #EEF0F4">
-    <div class="lz-container">
-      <div style="text-align:center;max-width:700px;margin:0 auto">
-        <p class="lz-eyebrow">SYSTEM ARCHITECTURE</p>
-        <h2 class="lz-section-title">Competency-Based Learning: Four connected capabilities.</h2>
-        <p class="lz-section-subtitle">
-          Instead of fragmented tools, Learniz connects classroom experiments, question drafting, structured syllabus delivery, and Early Gap Detection.
-        </p>
-      </div>
-
-      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:24px">
-        <!-- Module 1 -->
-        <div class="lz-card" style="display:flex;flex-direction:column">
-          <span style="width:44px;height:44px;border-radius:12px;background:#EEF4FF;color:hsl(217 91% 50%);display:grid;place-items:center">
-            <img src="/assets/icons/atom.svg" alt="" width="22" height="22">
-          </span>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:20px;font-weight:700;margin-top:18px;margin-bottom:0">1. Interactive Animations</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#3F4A5C;margin-top:8px;margin-bottom:0">
-            Learning by Doing: physics, chemistry, and biology models where teachers adjust variables live and students see the effect immediately.
-          </p>
-          <a href="/features/interactive-animations" style="margin-top:auto;padding-top:20px;font-weight:600;font-size:14px;color:hsl(217 91% 45%)">
-            Deep dive into animations →
-          </a>
-        </div>
-
-        <!-- Module 2 -->
-        <div class="lz-card" style="display:flex;flex-direction:column">
-          <span style="width:44px;height:44px;border-radius:12px;background:#F3EFFF;color:hsl(258 90% 58%);display:grid;place-items:center">
-            <img src="/assets/icons/sparkles.svg" alt="" width="22" height="22">
-          </span>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:20px;font-weight:700;margin-top:18px;margin-bottom:0">2. Question Generator</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#3F4A5C;margin-top:8px;margin-bottom:0">
-            Assessment in Seconds: 10 questions in 10 seconds. Auto-tagged by topic, difficulty and format for teachers to review and edit.
-          </p>
-          <a href="/features/intelliq" style="margin-top:auto;padding-top:20px;font-weight:600;font-size:14px;color:hsl(258 90% 50%)">
-            Explore question generator →
-          </a>
-        </div>
-
-        <!-- Module 3 -->
-        <div class="lz-card" style="display:flex;flex-direction:column">
-          <span style="width:44px;height:44px;border-radius:12px;background:#FFF1E8;color:hsl(25 95% 48%);display:grid;place-items:center">
-            <img src="/assets/icons/layers.svg" alt="" width="22" height="22">
-          </span>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:20px;font-weight:700;margin-top:18px;margin-bottom:0">3. LMS &amp; Exam Builder</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#3F4A5C;margin-top:8px;margin-bottom:0">
-            Formative Assessment, Built In: structured chapter → topic structure with configurable timers, negative marking, and pass criteria.
-          </p>
-          <a href="/features/lms-exam-builder" style="margin-top:auto;padding-top:20px;font-weight:600;font-size:14px;color:hsl(25 95% 48%)">
-            Examine LMS workflows →
-          </a>
-        </div>
-
-        <!-- Module 4 -->
-        <div class="lz-card" style="display:flex;flex-direction:column">
-          <span style="width:44px;height:44px;border-radius:12px;background:#E8F7EE;color:#15803D;display:grid;place-items:center">
-            <img src="/assets/icons/chart-column.svg" alt="" width="22" height="22">
-          </span>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:20px;font-weight:700;margin-top:18px;margin-bottom:0">4. Academic Analytics</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#3F4A5C;margin-top:8px;margin-bottom:0">
-            Early Gap Detection: question-level accuracy heatmaps, time analysis, and batch diagnostics weeks before board examinations.
-          </p>
-          <a href="/features/analytics" style="margin-top:auto;padding-top:20px;font-weight:600;font-size:14px;color:#15803D">
-            Review academic analytics →
-          </a>
-        </div>
-      </div>
+    <div class="rv" style="--d:.12s">
+      <div class="label" style="margin-bottom:12px">Institutional comparison</div>
+      ${rows([
+        { n: 'ERP', t: 'Traditional school software / ERP', b: 'Handles administrative fees and attendance. Zero interactive pedagogy. Exams are plain PDFs. Analytics stop at total marks.' },
+        { n: 'LZ', t: 'Learniz platform', b: 'Full experiential classroom software. Interactive parameter exploration. Automated question drafting. Question-level learning diagnosis.' }
+      ])}
+      <div class="actions"><button type="button" class="btn btn-primary" data-open-demo>Book a free demo</button></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- NEP 2020 Alignment Section -->
-  <section style="background:#F6F8FB;padding:clamp(56px,8vw,96px) 20px">
-    <div class="lz-container">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:48px;align-items:center">
-        <div>
-          <p class="lz-eyebrow">POLICY &amp; CURRICULUM</p>
-          <h2 class="lz-section-title">NCF-SE 2023 Ready: Built for experiential learning policy.</h2>
-          <p class="lz-section-subtitle">
-            The National Education Policy shifts focus from rote recall to competency-based experiential learning. Learniz provides the concrete classroom tools required to satisfy these mandates without burdening faculty.
-          </p>
+<!-- Infrastructure -->
+<section class="section section-line" aria-labelledby="infra-h">
+  <div class="container">
+    <div class="head">${head({ kicker: 'Enterprise grade', h2: 'Built for uptime, scale and privacy.', lede: 'Designed for multi-campus institutions with strict student data confidentiality and cloud resilience.' }).replace('class="h2 rv"', 'class="h2 rv" id="infra-h"')}</div>
+    ${rowsGrid([
+      { t: 'Data sovereignty', b: 'All student records, exam submissions and academic evaluations are hosted on secure AWS servers located within India.' },
+      { t: 'Multi-campus hierarchy', b: 'Centrally manage branches, trustees, principals, HODs, teachers and student rosters with granular permission controls.' },
+      { t: 'Zero hardware lock-in', b: 'Operates on existing smart boards, interactive flat panels, projectors, Windows laptops, Chromebooks and tablets.' },
+      { t: 'Local dedicated support', b: 'An onboarding team based in Hyderabad offering direct teacher training, syllabus ingestion and ongoing assistance.' }
+    ], 4)}
+  </div>
+</section>
 
-          <div style="margin-top:28px;display:grid;gap:16px">
-            <div style="display:flex;gap:14px">
-              <span style="width:32px;height:32px;border-radius:8px;background:#EEF4FF;color:hsl(217 91% 50%);display:grid;place-items:center;flex:none">
-                <img src="/assets/icons/check.svg" width="16" height="16">
-              </span>
-              <div>
-                <strong style="color:#0B1324;display:block">Experiential Pedagogy</strong>
-                <span style="font-size:14px;color:#4B5567">Students manipulate physical constants, test hypotheses, and deduce scientific laws.</span>
-              </div>
-            </div>
-            <div style="display:flex;gap:14px">
-              <span style="width:32px;height:32px;border-radius:8px;background:#F3EFFF;color:hsl(258 90% 58%);display:grid;place-items:center;flex:none">
-                <img src="/assets/icons/check.svg" width="16" height="16">
-              </span>
-              <div>
-                <strong style="color:#0B1324;display:block">Continuous Formative Assessment</strong>
-                <span style="font-size:14px;color:#4B5567">Low-stakes frequent formative assessments replace intimidating term-end bottlenecks.</span>
-              </div>
-            </div>
-            <div style="display:flex;gap:14px">
-              <span style="width:32px;height:32px;border-radius:8px;background:#FFF1E8;color:hsl(25 95% 48%);display:grid;place-items:center;flex:none">
-                <img src="/assets/icons/check.svg" width="16" height="16">
-              </span>
-              <div>
-                <strong style="color:#0B1324;display:block">Parent Confidence &amp; Transparent Reporting</strong>
-                <span style="font-size:14px;color:#4B5567">Parents view subject mastery trajectories rather than arbitrary letter grades.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:#fff;border:1px solid #DCE2EC;border-radius:20px;padding:32px;box-shadow:var(--shadow-md)">
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:20px;font-weight:700;margin:0 0 16px">Institutional Comparison</h3>
-          <div style="display:grid;gap:14px;font-size:14px">
-            <div style="padding:14px;border-radius:10px;background:#FFF1E8;border-left:4px solid hsl(25 95% 55%)">
-              <strong style="color:#9A3412;display:block">Traditional School Software / ERP</strong>
-              <p style="margin:4px 0 0;color:#7C2D12;line-height:1.45">
-                Handles administrative fees and attendance. Zero interactive pedagogy. Exams are plain PDFs. Analytics stop at total marks.
-              </p>
-            </div>
-            <div style="padding:14px;border-radius:10px;background:#E8F7EE;border-left:4px solid #15803D">
-              <strong style="color:#15803D;display:block">Learniz Platform</strong>
-              <p style="margin:4px 0 0;color:#166534;line-height:1.45">
-                Full experiential classroom software. Interactive parameter exploration. Automated question drafting. Question-level learning diagnosis.
-              </p>
-            </div>
-          </div>
-          <div style="margin-top:24px;text-align:center">
-            <button type="button" data-open-demo class="lz-btn-primary" style="width:100%">Book a free demo</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Infrastructure & Data Sovereignty -->
-  <section style="padding:clamp(56px,8vw,96px) 20px">
-    <div class="lz-container">
-      <div style="text-align:center;max-width:700px;margin:0 auto">
-        <p class="lz-eyebrow">ENTERPRISE GRADE</p>
-        <h2 class="lz-section-title">Built for uptime, scale and privacy.</h2>
-        <p class="lz-section-subtitle">
-          Designed specifically for multi-campus institutions with strict student data confidentiality and cloud resilience.
-        </p>
-      </div>
-
-      <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
-        <div class="lz-card">
-          <img src="/assets/icons/shield-check.svg" alt="" width="24" height="24" style="color:#15803D">
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin:12px 0 6px">Data Sovereignty</h3>
-          <p style="font-size:14px;color:#4B5567;line-height:1.5;margin:0">
-            All student records, exam submissions, and academic evaluations are hosted on secure AWS servers located within India.
-          </p>
-        </div>
-        <div class="lz-card">
-          <img src="/assets/icons/building-2.svg" alt="" width="24" height="24">
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin:12px 0 6px">Multi-Campus Hierarchy</h3>
-          <p style="font-size:14px;color:#4B5567;line-height:1.5;margin:0">
-            Centrally manage branches, trustees, principals, HODs, teachers, and student rosters with granular permission controls.
-          </p>
-        </div>
-        <div class="lz-card">
-          <img src="/assets/icons/timer.svg" alt="" width="24" height="24">
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin:12px 0 6px">Zero Hardware Lock-In</h3>
-          <p style="font-size:14px;color:#4B5567;line-height:1.5;margin:0">
-            Operates smoothly on existing smart boards, interactive flat panels, projectors, Windows laptops, Chromebooks, and tablets.
-          </p>
-        </div>
-        <div class="lz-card">
-          <img src="/assets/icons/message-circle.svg" alt="" width="24" height="24">
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin:12px 0 6px">Local Dedicated Support</h3>
-          <p style="font-size:14px;color:#4B5567;line-height:1.5;margin:0">
-            Dedicated onboarding team based in Hyderabad offering direct teacher training, syllabus ingestion, and ongoing assistance.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA Band -->
-  <section style="padding:0 20px clamp(56px,8vw,96px)">
-    <div class="lz-container" style="background:hsl(217 91% 60%);border-radius:24px;padding:clamp(48px,7vw,80px) clamp(24px,5vw,72px);color:#fff;text-align:center">
-      <h2 style="font-family:Figtree,Inter,sans-serif;font-size:clamp(30px,4.5vw,48px);font-weight:800;letter-spacing:-.03em;margin:0">
-        Measurable Learning Outcomes for your school. Book a free demo.
-      </h2>
-      <p style="font-size:17px;line-height:1.55;color:#EAF1FF;max-width:580px;margin:16px auto 32px">
-        A 20-minute walkthrough customized to your school's curriculum, boards, and student strength.
-      </p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button type="button" data-open-demo class="lz-btn-outline" style="background:#fff;color:hsl(217 91% 40%);border:0;font-weight:700">Book a free demo</button>
-        <a href="${waHref}" target="_blank" rel="noopener" class="lz-btn-outline" style="background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff">
-          <img src="/assets/icons/message-circle.svg" alt="" width="18" height="18" style="filter:invert(1)">Talk to Us on WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
-${footer}
-${modal}
-${whatsapp}
-
-<script src="/assets/js/main.js" defer></script>
-</body>
-</html>
+${cta({ h2: 'Measurable Learning Outcomes for your school.', lede: "A 20-minute walkthrough customised to your school's curriculum, boards and student strength." })}
 `;
-}
 
+  return page({
+    head: {
+      title: 'Competency-Based Learning Platform for Schools | Learniz',
+      description: 'Learniz turns lessons into live experiments and shows principals, in numbers, what every class understood. Outcomes you can see.',
+      path: '/platform',
+      schema
+    },
+    body,
+    activePath: '/platform'
+  });
+}

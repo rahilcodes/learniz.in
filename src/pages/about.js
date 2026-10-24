@@ -1,163 +1,57 @@
 /**
- * About Learniz Page
- * URL: /about
+ * About — /about
  */
-
-import { renderHeader } from '../components/Header.js';
-import { renderFooter } from '../components/Footer.js';
-import { renderBookingModal } from '../components/BookingModal.js';
-import { renderWhatsAppFloat } from '../components/WhatsAppFloat.js';
-import { renderHead } from '../components/SEOHead.js';
+import { page, hero, head, rows, rowsGrid, cta, placeholder, icon } from '../components/layout.js';
 
 export function renderAboutPage() {
-  const head = renderHead({
-    title: "About Learniz | Tattvatech Edu Solutions LLP, Hyderabad",
-    description: "Learniz builds the experiential learning platform for Indian schools. Built in Hyderabad by educators and technologists.",
-    path: "/about"
-  });
+  const body = `
+${hero({
+    tags: [['About Learniz', 'tag-accent'], ['Hyderabad, Telangana', 'tag-neutral']],
+    h1: 'Every class an experiment, not a lecture.', h1b: 'Outcomes you can see.',
+    lede: 'When students test variables and observe cause and effect live, learning moves from transient memorisation to permanent conceptual intuition.',
+    actions: `<button type="button" class="btn btn-primary btn-lg" data-open-demo>Book a free demo${icon('arrowRight', 15)}</button><a href="/contact" class="btn btn-ghost btn-lg">Contact details</a>`
+  })}
 
-  const header = renderHeader('/about');
-  const footer = renderFooter();
-  const modal = renderBookingModal();
-  const whatsapp = renderWhatsAppFloat();
-
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-${head}
-</head>
-<body>
-${header}
-
-<main id="main-content">
-  <!-- Hero Section -->
-  <section style="background:radial-gradient(70% 60% at 50% 0%,#EEF4FF 0%,rgba(255,255,255,0) 70%);padding:clamp(48px,7vw,84px) 20px clamp(40px,6vw,64px)">
-    <div class="lz-container" style="text-align:center">
-      <p class="lz-eyebrow">ABOUT LEARNIZ</p>
-      <h1 class="lz-section-title" style="font-size:clamp(34px,5.5vw,56px);margin-top:16px;max-width:920px;margin-left:auto;margin-right:auto">
-        Every class an experiment, not a lecture. Outcomes you can see.
-      </h1>
-      <p class="lz-section-subtitle" style="max-width:680px;margin-left:auto;margin-right:auto">
-        When students test variables and observe cause and effect live, learning transitions from transient memorization to permanent conceptual intuition.
-      </p>
+<section class="section-bottom" aria-labelledby="mission-h">
+  <div class="container two-col two-col-wide two-col-start">
+    <div class="head">
+      ${head({ kicker: 'Our mission', h2: 'Every class an experiment, not a lecture.', lede: 'Founded in Hyderabad, Telangana, Learniz was established with a singular conviction: Indian classrooms are full of inquisitive minds whose potential is constrained by 19th-century blackboard lectures.', note: 'With the National Education Policy (NEP 2020) and NCF-SE 2023, Indian schools have a clear mandate to adopt experiential pedagogy. Learniz provides the school-ready platform to make this transition practical for every teacher.' }).replace('class="h2 rv"', 'class="h2 rv" id="mission-h"')}
+      <div class="rv" style="--d:.24s;margin-top:36px;max-width:440px">${placeholder('photo — Learniz team / Hyderabad office', '4 / 3', { caption: 'Team photo (to be supplied)' })}</div>
     </div>
-  </section>
-
-  <!-- Company Story & Entity -->
-  <section style="padding:clamp(56px,8vw,96px) 20px;border-top:1px solid #EEF0F4">
-    <div class="lz-container" style="max-width:960px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:48px;align-items:start">
-        <div>
-          <p class="lz-eyebrow">OUR MISSION</p>
-          <h2 class="lz-section-title" style="font-size:clamp(26px,3.5vw,36px)">
-            Every class an experiment, not a lecture.
-          </h2>
-          <p class="lz-section-subtitle" style="margin-bottom:16px">
-            Founded in Hyderabad, Telangana, Learniz was established with a singular conviction: Indian classrooms are full of inquisitive minds whose potential is constrained by 19th-century blackboard lectures.
-          </p>
-          <p style="font-size:15px;line-height:1.6;color:#4B5567">
-            With the National Education Policy (NEP 2020) and NCF-SE 2023, Indian schools have a clear regulatory mandate to adopt experiential pedagogy. Learniz provides the school-ready platform to make this transition structured, practical, and measurable.
-          </p>
-        </div>
-
-        <!-- Corporate Facts Box -->
-        <div class="lz-card" style="box-shadow:var(--shadow-sm);background:#FAFBFD">
-          <div style="margin-bottom:18px">
-            <img src="/assets/images/learniz-logo-horizontal.png" alt="Learniz - Outcomes you can see." style="height:44px;width:auto;display:block">
-          </div>
-          <span style="font-size:12px;font-weight:700;color:hsl(217 91% 45%);letter-spacing:.08em;text-transform:uppercase">Corporate Verification</span>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:18px;font-weight:700;margin:12px 0 16px">Tattvatech Edu Solutions LLP</h3>
-          <dl style="margin:0;display:grid;gap:12px;font-size:14px;color:#3F4A5C">
-            <div>
-              <dt style="font-weight:600;color:#0B1324">Operating Brand</dt>
-              <dd style="margin:2px 0 0">Learniz</dd>
-            </div>
-            <div>
-              <dt style="font-weight:600;color:#0B1324">Registered Headquarters</dt>
-              <dd style="margin:2px 0 0">Hyderabad, Telangana, India</dd>
-            </div>
-            <div>
-              <dt style="font-weight:600;color:#0B1324">Direct Contact</dt>
-              <dd style="margin:2px 0 0">
-                <a href="mailto:info@learniz.in" style="font-weight:500">info@learniz.in</a> · 
-                <a href="tel:+919032181083" style="font-weight:500">+91-9032181083</a>
-              </dd>
-            </div>
-            <div>
-              <dt style="font-weight:600;color:#0B1324">Data &amp; Cloud Infrastructure</dt>
-              <dd style="margin:2px 0 0">100% Hosted within India (AWS Asia Pacific Region)</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
+    <div class="rv" style="--d:.12s">
+      <div class="label" style="margin-bottom:12px">Corporate verification</div>
+      ${rows([
+        { n: 'LLP', t: 'Tattvatech Edu Solutions LLP', b: 'Operating brand: Learniz. Registered headquarters: Hyderabad, Telangana, India.' },
+        { n: 'TEL', t: '+91-9032181083 · info@learniz.in', b: 'Direct contact for institutional queries, demos and onboarding. <a href="/contact">Contact page</a>' },
+        { n: 'AWS', t: 'Data and cloud infrastructure', b: '100% hosted within India (AWS Asia Pacific region). Student records belong to the institution and parents.' },
+        { n: 'DOC', t: 'Clear terms, in plain language', b: 'Separate, transparent <a href="/privacy">Privacy</a>, <a href="/terms">Terms</a> and <a href="/refund">Refund</a> policies, and a data-handling summary in our <a href="/faq">FAQ</a>.' }
+      ])}
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Core Values Grid -->
-  <section style="background:#F6F8FB;padding:clamp(56px,8vw,96px) 20px">
-    <div class="lz-container">
-      <div style="text-align:center;max-width:700px;margin:0 auto">
-        <p class="lz-eyebrow">OUR CORE PRINCIPLES</p>
-        <h2 class="lz-section-title">What we believe and prioritize</h2>
-      </div>
+<section class="section section-line" aria-labelledby="values-h">
+  <div class="container">
+    <div class="head">${head({ kicker: 'Our core principles', h2: 'What we believe and prioritise.', lede: 'We would rather show you the platform than a wall of claims: verified curriculum alignment, registered Indian corporate governance, and open interactive demos.' }).replace('class="h2 rv"', 'class="h2 rv" id="values-h"')}</div>
+    ${rowsGrid([
+      { t: 'Concept over memorisation', b: 'A formula memorised without conceptual intuition is forgotten shortly after the exam. Interactive experiments build mental anchors that last.' },
+      { t: 'Teaching Time Reclaimed', b: 'Technology must never attempt to replace the teacher. Learniz automates paper-setting and grading drudgery so teachers have time to mentor.' },
+      { t: 'Strict data integrity', b: 'Student academic records belong solely to the institution and parents. Hosted strictly in India with zero third-party ads or data sales.' },
+      { t: 'A product you can try before you call', b: 'The interactive classroom demonstrations and the live question generator are open on the website. No login, no sales call required. <a href="/see-it-live">See It Live</a>' }
+    ], 4)}
+  </div>
+</section>
 
-      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px">
-        <div class="lz-card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#EEF4FF;display:grid;place-items:center;color:hsl(217 91% 50%)">
-            <img src="/assets/icons/atom.svg" width="20" height="20" alt="">
-          </div>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:19px;font-weight:700;margin:16px 0 8px">Concept Over Memorization</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#4B5567;margin:0">
-            A formula memorized without conceptual intuition is forgotten shortly after the exam. Interactive experiments build mental anchors that last.
-          </p>
-        </div>
-
-        <div class="lz-card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#F3EFFF;display:grid;place-items:center;color:hsl(258 90% 58%)">
-            <img src="/assets/icons/sparkles.svg" width="20" height="20" alt="">
-          </div>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:19px;font-weight:700;margin:16px 0 8px">Teaching Time Reclaimed</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#4B5567;margin:0">
-            Technology must never attempt to replace the teacher. Learniz automates paper-setting and grading drudgery so teachers have time to mentor.
-          </p>
-        </div>
-
-        <div class="lz-card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#E8F7EE;display:grid;place-items:center;color:#15803D">
-            <img src="/assets/icons/shield-check.svg" width="20" height="20" alt="">
-          </div>
-          <h3 style="font-family:Figtree,Inter,sans-serif;font-size:19px;font-weight:700;margin:16px 0 8px">Strict Data Integrity</h3>
-          <p style="font-size:14.5px;line-height:1.55;color:#4B5567;margin:0">
-            Student academic records belong solely to the institution and parents. Hosted strictly in India with zero third-party ads or data sales.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Band -->
-  <section style="padding:clamp(56px,8vw,96px) 20px">
-    <div class="lz-container" style="background:#0B1324;border-radius:24px;padding:clamp(48px,7vw,80px) 24px;color:#fff;text-align:center">
-      <h2 style="font-family:Figtree,Inter,sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;margin:0">
-        Concept Clarity in every class. Outcomes you can see.
-      </h2>
-      <p style="font-size:16.5px;color:#C5CCDA;max-width:580px;margin:16px auto 32px">
-        Connect with our Hyderabad academic team to see Learniz configured for your school's curriculum.
-      </p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button type="button" data-open-demo class="lz-btn-primary">Book a free demo</button>
-        <a href="/contact" class="lz-btn-outline" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff">Contact Details →</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-${footer}
-${modal}
-${whatsapp}
-
-<script src="/assets/js/main.js" defer></script>
-</body>
-</html>
+${cta({ lede: "Connect with our Hyderabad academic team to see Learniz configured for your school's curriculum." })}
 `;
+
+  return page({
+    head: {
+      title: 'About Learniz | Tattvatech Edu Solutions LLP, Hyderabad',
+      description: 'Learniz builds the experiential learning platform for Indian schools. Built in Hyderabad by educators and technologists.',
+      path: '/about'
+    },
+    body,
+    activePath: '/about'
+  });
 }
