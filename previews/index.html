@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learniz Product Imagery Review — Phase 1 (Items 1–3 & 7)</title>
+<style>
+:root {
+  --bg: #161826;
+  --surface: #232532;
+  --text: #e9e9ed;
+  --muted: #b2b6ca;
+  --subtle: #75798c;
+  --accent: #9184d9;
+  --accent-tint: #423a6a;
+  --border: rgba(233, 233, 237, 0.16);
+  --radius-card: 14px;
+  --radius-ctrl: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 48px 32px;
+  line-height: 1.5;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 32px;
+}
+.brand-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: -0.02em;
+}
+p.subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin-top: 8px;
+  max-width: 800px;
+}
+.asset-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.asset-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.asset-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.asset-spec {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.card-img-wrap {
+  width: 100%;
+  background: #0f101a;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.card-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card-tag {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+.card-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+}
+.badge {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: var(--radius-ctrl);
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--accent-tint);
+  color: #f5f4ff;
+  border: 1px solid rgba(145, 132, 217, 0.3);
+}
+a.file-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+  font-family: monospace;
+}
+a.file-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="brand-tag">LEARNIZ NOCTURNE ASSET STUDIO</div>
+    <h1>Phase 1 Review: UI Screenshots & Video Posters</h1>
+    <p class="subtitle">
+      Items 1–3 and 7 generated strictly to the Nocturne design system: Inter 500 headings, #161826 ground, #232532 card surface, and #9184d9 single accent. Two layout options per item with 1× and 2× retina exports.
+    </p>
+  </header>
+
+  <!-- ITEM 1 -->
+  <section class="asset-section">
+    <div class="asset-header">
+      <div>
+        <span class="brand-tag">ITEM 1</span>
+        <h2 class="asset-title">Ray Optics Simulation (sim-ray-optics.png)</h2>
+      </div>
+      <div class="asset-spec">1600×1200 (4:3) · Dark Theme + Light Theme Variant</div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-ray-optics-opt-a.png" target="_blank"><img src="sim-ray-optics-opt-a.png" alt="Option A"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION A (RECOMMENDED)</span>
+          <div class="card-name">Workbench Studio Layout</div>
+          <div class="card-desc">Left inspector controls, coordinate grid bench, biconvex lens, 3 principal rays converging at 2F₂, bottom slider dock.</div>
+          <a class="file-link" href="sim-ray-optics-opt-a@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-ray-optics-opt-b.png" target="_blank"><img src="sim-ray-optics-opt-b.png" alt="Option B"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION B</span>
+          <div class="card-name">Panoramic HUD Layout</div>
+          <div class="card-desc">Top telemetry HUD chips, expansive dark optics bench, right ray-tracing inspector card with sign conventions.</div>
+          <a class="file-link" href="sim-ray-optics-opt-b@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-ray-optics-light-opt-a.png" target="_blank"><img src="sim-ray-optics-light-opt-a.png" alt="Light Variant"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">LIGHT VARIANT</span>
+          <div class="card-name">Light Theme (#f7f7fb / #6d5fc4)</div>
+          <div class="card-desc">Matches light mode palette with identical geometry, typography, and controls.</div>
+          <a class="file-link" href="sim-ray-optics-light-opt-a@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 2 -->
+  <section class="asset-section">
+    <div class="asset-header">
+      <div>
+        <span class="brand-tag">ITEM 2</span>
+        <h2 class="asset-title">Photosynthesis Simulation (sim-photosynthesis.png)</h2>
+      </div>
+      <div class="asset-spec">1600×1200 (4:3) · Dark Theme + Light Theme Variant</div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-photosynthesis-opt-a.png" target="_blank"><img src="sim-photosynthesis-opt-a.png" alt="Option A"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION A (RECOMMENDED)</span>
+          <div class="card-name">Two-Zone Chloroplast Anatomy</div>
+          <div class="card-desc">Left thylakoids (photolysis, ATP synthesis), right Calvin cycle wheel, sliders for Light & CO₂, O₂ released readout bar, "Rate rising" chip.</div>
+          <a class="file-link" href="sim-photosynthesis-opt-a@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-photosynthesis-opt-b.png" target="_blank"><img src="sim-photosynthesis-opt-b.png" alt="Option B"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION B</span>
+          <div class="card-name">Kinetics & Response Curve</div>
+          <div class="card-desc">Environmental chambers with Blackman's Limiting Factors curve chart and coupled reaction ultrastructure columns.</div>
+          <a class="file-link" href="sim-photosynthesis-opt-b@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="sim-photosynthesis-light-opt-a.png" target="_blank"><img src="sim-photosynthesis-light-opt-a.png" alt="Light Variant"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">LIGHT VARIANT</span>
+          <div class="card-name">Light Theme (#f7f7fb / #6d5fc4)</div>
+          <div class="card-desc">Full light-mode rendering for daylight classroom contexts.</div>
+          <a class="file-link" href="sim-photosynthesis-light-opt-a@2x.png" target="_blank">View 2× Retina (3200×2400)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 3 -->
+  <section class="asset-section">
+    <div class="asset-header">
+      <div>
+        <span class="brand-tag">ITEM 3</span>
+        <h2 class="asset-title">Exam Builder Scheduling View (exam-builder-schedule.png)</h2>
+      </div>
+      <div class="asset-spec">1600×1000 (16:10) · Dark Theme + Light Theme Variant</div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="exam-builder-schedule-opt-a.png" target="_blank"><img src="exam-builder-schedule-opt-a.png" alt="Option A"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION A (RECOMMENDED)</span>
+          <div class="card-name">Two-Column Command Layout</div>
+          <div class="card-desc">Left: Class 9 Physics UT3 Sections A/B/C. Right: 45 min timer, -0.25 neg marking, 40% pass mark, Friday 9:40 schedule row, "Push to classes" accent button.</div>
+          <a class="file-link" href="exam-builder-schedule-opt-a@2x.png" target="_blank">View 2× Retina (3200×2000)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="exam-builder-schedule-opt-b.png" target="_blank"><img src="exam-builder-schedule-opt-b.png" alt="Option B"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">OPTION B</span>
+          <div class="card-name">Modular Dashboard Layout</div>
+          <div class="card-desc">Horizontal sections card stack with delivery rules drawer and primary outlined accent CTA button.</div>
+          <a class="file-link" href="exam-builder-schedule-opt-b@2x.png" target="_blank">View 2× Retina (3200×2000)</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap">
+          <a href="exam-builder-schedule-light-opt-a.png" target="_blank"><img src="exam-builder-schedule-light-opt-a.png" alt="Light Variant"></a>
+        </div>
+        <div class="card-body">
+          <span class="card-tag">LIGHT VARIANT</span>
+          <div class="card-name">Light Theme (#f7f7fb / #6d5fc4)</div>
+          <div class="card-desc">Clean administrative daylight view.</div>
+          <a class="file-link" href="exam-builder-schedule-light-opt-a@2x.png" target="_blank">View 2× Retina (3200×2000)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 7 -->
+  <section class="asset-section">
+    <div class="asset-header">
+      <div>
+        <span class="brand-tag">ITEM 7</span>
+        <h2 class="asset-title">Video Walkthrough Posters (video-poster-*.png)</h2>
+      </div>
+      <div class="asset-spec">1600×900 (16:9) · Dark UI · No Play Button, No Video Titles</div>
+    </div>
+
+    <!-- 7a -->
+    <div style="margin-top: 8px;">
+      <h3 style="font-size: 16px; font-weight: 500; margin-bottom: 16px;">7a. Platform Dashboard Overview (video-poster-overview.png)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-overview-opt-a.png" target="_blank"><img src="video-poster-overview-opt-a.png" alt="Overview Option A"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION A (RECOMMENDED)</span>
+            <div class="card-name">Horizontal Class-Wise Accuracy Bars</div>
+            <div class="card-desc">Classes 6-A through 10-B concept accuracy with quiet Nocturne metrics and benchmark hairline.</div>
+            <a class="file-link" href="video-poster-overview-opt-a@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-overview-opt-b.png" target="_blank"><img src="video-poster-overview-opt-b.png" alt="Overview Option B"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION B</span>
+            <div class="card-name">Vertical Cohort Columns</div>
+            <div class="card-desc">Vertical column chart comparison with 75% target threshold hairline and class cohort distribution.</div>
+            <a class="file-link" href="video-poster-overview-opt-b@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7b -->
+    <div style="margin-top: 24px;">
+      <h3 style="font-size: 16px; font-weight: 500; margin-bottom: 16px;">7b. Classroom Interactive Panel Interaction (video-poster-teacher.png)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-teacher-opt-a.png" target="_blank"><img src="video-poster-teacher-opt-a.png" alt="Teacher Option A"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION A (RECOMMENDED)</span>
+            <div class="card-name">Documentary Hand-on-Panel Interaction</div>
+            <div class="card-desc">Teacher's hand adjusting glowing #9184d9 slider on dark flat panel with trajectory arcs, soft classroom bokeh.</div>
+            <a class="file-link" href="video-poster-teacher-opt-a@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-teacher-opt-b.png" target="_blank"><img src="video-poster-teacher-opt-b.png" alt="Teacher Option B"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION B</span>
+            <div class="card-name">Side Angle Optics Slider Focus</div>
+            <div class="card-desc">High-angle side close-up of teacher fine-tuning simulation controls with natural morning classroom window daylight.</div>
+            <a class="file-link" href="video-poster-teacher-opt-b@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7c -->
+    <div style="margin-top: 24px;">
+      <h3 style="font-size: 16px; font-weight: 500; margin-bottom: 16px;">7c. Question-Level Accuracy Heatmap (video-poster-analytics.png)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-analytics-opt-a.png" target="_blank"><img src="video-poster-analytics-opt-a.png" alt="Analytics Option A"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION A (RECOMMENDED)</span>
+            <div class="card-name">5×5 Matrix + Misconception Drawer</div>
+            <div class="card-desc">25 question squares, exactly two (Q14 & Q21) outlined in #9184d9 with "below 33 %" chips and diagnostic analysis.</div>
+            <a class="file-link" href="video-poster-analytics-opt-a@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrap">
+            <a href="video-poster-analytics-opt-b.png" target="_blank"><img src="video-poster-analytics-opt-b.png" alt="Analytics Option B"></a>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">OPTION B</span>
+            <div class="card-name">Expanded 25-Question Diagnostic Grid</div>
+            <div class="card-desc">Full 25-item question difficulty grid highlighting outlier questions below 33% accuracy.</div>
+            <a class="file-link" href="video-poster-analytics-opt-b@2x.png" target="_blank">View 2× Retina (3200×1800)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
